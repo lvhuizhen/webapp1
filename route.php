@@ -49,19 +49,23 @@
 				{{#each ssList}}
 				<div class="ssList">
 					<div class="ssName">
-						<div class="icon">
-							<img src="modules/route/images/scenic.png" alt="">
+						<div onclick="turnTo({{id}})">
+							<div class="icon">
+								<img src="modules/route/images/scenic.png" alt="">
+							</div>
+							<div class="ssRecom">
+								<p class="sname">
+									{{name}}
+									<span>{{experienceTag}}</span>
+								</p>
+								<p class="cname">{{cityName}}
+									{{#if recomTimeStr}}
+									<i></i>{{recomTimeStr}}
+									{{/if}}
+								</p>
+							</div>
+							<div class="arrow"></div>
 						</div>
-						<div class="ssRecom">
-							<p>{{name}}</p>
-							<p>{{experienceTag}}</p>
-							<p>{{cityName}}
-								{{#if recomTimeStr}}
-								<i></i>{{recomTimeStr}}
-								{{/if}}
-							</p>
-						</div>
-						<div class="arrow"></div>
 					</div>
 					<div class="swiper-container">
 				        <div class="swiper-wrapper">

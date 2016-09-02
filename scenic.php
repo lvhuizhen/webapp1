@@ -222,11 +222,13 @@
 			        <div class="swiper-wrapper">
 			        	{{#each sub}}
 			            <div class="swiper-slide">
-			            	<a href="http://192.168.1.150/scenic.php?ssId={{id}}"></a>
+			            	<div onclick="turnTo({{id}})"></a>
 				            	<p class="viewName">{{name}}</p>
 				            	<div class="fj-zz"></div>
+				            	{{#if img}}
 				            	<img src="{{img}}-spotsubspot.ht" alt="">
-				            </a>
+				            	{{/if}}
+				            </div>
 			            </div>
 			        	{{/each}}
 			        </div>

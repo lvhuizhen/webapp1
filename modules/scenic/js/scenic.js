@@ -1,3 +1,8 @@
+function turnTo(id){
+	var url = location.href;
+    if (url.indexOf('?') >= 0) url = url.split('?')[0];
+	window.location.href=url+'?ssId='+id;
+}
 function tab(){
 	$('#scenicContent').on('tap','.tab li',function(){
 		var index=$(this).index()+1;
