@@ -1,0 +1,692 @@
+@import "swiper.min.css";
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	list-style: none;
+}
+/*头部图*/
+.headerImg{
+	width:100%;
+	height: 10.66rem;
+	position: relative;
+}
+.headerImg>div{
+	position: absolute;
+	top: 50%;
+	margin-top:-3.2rem; 
+	color: white;
+	left: 20px;
+	right: 20px;
+	text-align: center;
+}
+.userInfo>span:nth-child(1){
+	display: block;
+	width: 44px;
+	height: 44px;
+	border:2px solid #FFF;
+	border-radius: 50%;
+	margin:0 auto;
+}
+.userInfo .username{
+	font-family: "PingFangSC-Medium",Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	margin-top: 1px;
+	margin-bottom: 16px;
+}
+.planInfo .planName{
+	font-family: "PingFangSC-Semibold",Helvetica, sans-serif;
+	font-size: 24px;
+	color: #FFFFFF;
+	letter-spacing: 0px;
+	line-height: 25px;
+	margin-bottom: 8px;
+}
+.planInfo .fromDate{
+	font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 13px;
+	color: #FFFFFF;
+	width: 100px;
+	margin: 0 auto;
+}
+.dot1{
+	display: inline-block;
+    width: 2px;
+    height: 2px;
+    margin-bottom: 2px;
+    background-color: white;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.pLine{
+	float: left;
+    width: 12px;
+    height: 1px;
+    background-color: white;
+}
+.fromDate{
+	position: relative;
+}
+.fromDate>div{
+}
+.fromDate>div:nth-child(1){
+	float: left;
+	margin-top: 7px;
+	margin-right: 5px;
+}
+.fromDate>div:nth-child(3){
+	float: right;
+	margin-top: 7px;
+}
+.fromDate>div:nth-child(1) .pLine{
+	margin-right: 2px;
+}
+.fromDate>div:nth-child(3) .pLine{
+	margin-left: 2px;
+}
+.fromDate>div span{
+	float: left;
+}
+/*tab切换条*/
+#planContent{
+	width: 100%;
+	overflow: hidden;
+}
+ul.tab{
+	height: 40px;
+	line-height: 2rem;
+	border-bottom: 1px solid #f3f3f3;
+}
+ul.tab li{
+	float: left;
+	text-align: center;
+	width: 72px;
+	height: 100%;
+	font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 15px;
+	color: #B3B3B3;
+}
+ul.tab li.active{
+	color: #33D1C9;
+	font-family: "PingFangSC-Semibold",Helvetica, sans-serif;
+}
+ul.tab li span{
+	display: block;
+	width: 50%;
+	height: 100%;
+	margin: 0 auto;
+}
+ul.tab li.active span{
+	box-sizing:border-box;
+	border-bottom: 1px solid #33D1C9;
+}
+/*行程列表*/
+.plan-item-title a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.plan-item-title>div{
+	float: left;
+}
+.plan-item-title{
+	padding: 12px 20px;
+	position: relative;
+	overflow: hidden;
+	background-color: #f8f8f8;
+	border-top: 1px solid #f3f3f3;
+}
+.dayNum{
+	font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+    font-size: 14px;
+    color: #FFF;
+    background-color: #33D1C9;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    margin-top: -14px;
+}
+.trans{
+	margin-left: 36px;
+}
+.trans p:nth-child(1){
+	font-family: "PingFangSC-Medium",Helvetica, sans-serif;
+	font-size: 17px;
+	color: #2F383B;
+	line-height: 24px;
+}
+.trans p:nth-child(2){
+	font-family: "PingFangSC-Light",Helvetica, sans-serif;
+	font-size: 12px;
+	color: #838384;
+	line-height: 16px;
+	margin-left: 1px;
+}
+.arrow {
+    width: 6px;
+    height: 12px;
+    background: url('../images/next.png');
+    background-size: 100% 100%;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -6px;
+}
+.dot{
+	display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin-bottom: 3px;
+    background-color: black;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 50%;
+}
+.plan-item-body{
+}
+.plan-item-body>div{
+	border-top: 1px solid #f3f3f3;
+	padding: 12px 20px;
+}
+.plan-item-body>div.trafficA{
+	border-top: 1px solid #f3f3f3;
+	padding: 12px 20px;
+}
+.title1{
+	font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 15px;
+	color: #2F383B;
+	line-height: 23px;
+}
+.gray{
+	font-family: "PingFangSC-Light",Helvetica, sans-serif;
+	font-size: 12px;
+	color: #838384;
+	line-height: 20px;	
+}
+ .title img{
+	vertical-align: middle;
+	width: 15px;
+	height: 15px;
+	margin-right: 8px;
+}
+.title{
+	padding: 12px 0;
+	font-family: "PingFangSC-Medium",Helvetica, sans-serif;
+	font-size: 15px;
+	color: #B3B3B3;
+	line-height: 24px;
+}
+.trafficA .title1{
+	margin-bottom: 6px;
+}
+.trafficA .traffic-item{
+	border-bottom: 1px solid #f3f3f3;
+}
+.trafficA .traffic-item:last-child{
+	border-bottom: none;
+}
+.turn{
+	width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: #838384;
+	border-radius: 2px;
+    text-align: center;
+    line-height: 15px;
+    margin-left: 4px;
+    font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FFFFFF;
+}
+.ssnum{
+    font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 10px;
+	color: #838384;
+}
+.time{
+	margin-left: -4px;
+}
+.waitHotel{
+	display: inline-block;
+    width: 34px;
+    height: 18px;
+    text-align: center;
+    line-height: 17px;
+    margin-left: 4px;
+    vertical-align: middle;
+    background: #FCC04A;
+	border-radius: 3px;
+	font-family: "PingFangSC-Medium",Helvetica, sans-serif;
+	font-size: 13px;
+	color: #FFFFFF;
+}
+.reco{
+	display: inline-block;
+	margin-left: 5px;
+}
+
+
+/*行程详情*/
+.trafficHub{
+	padding: 0px 20px;
+	background-color: #FFF;
+	position: relative;
+	overflow: hidden;
+}
+.ss{
+	background-color: #FFF;
+	position: relative;
+	overflow: hidden;
+}
+.trafficHub>div{
+	float: left;
+}
+.icon1{
+	width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+}
+
+.trafficHub .HubDetail,.ssDetail{
+	margin-left: 36px;
+	padding: 16px 0;
+}
+.trafficHub .HubDetail p:nth-child(1),.ssDetail p:nth-child(1){
+	font-size: 17px;
+	color: #2C2C2D;
+	font-family: "PingFangSC-Medium",Helvetica, sans-serif;
+}
+.ty{
+	font-size: 17px;
+	color: #2C2C2D;
+	font-family: "PingFangSC-Medium",Helvetica, sans-serif;
+}
+.trafficHub .HubDetail p:nth-child(2),.ssDetail p:nth-child(2){
+	font-family: "PingFangSC-Light",Helvetica, sans-serif;
+	font-size: 12px;
+	color: #838384;
+	line-height: 18px;
+}
+.traffic{
+	padding: 16px 20px;
+	background-color: #f8f8f8;
+	position: relative;
+	overflow: hidden;
+}
+.traffic .icon{
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	top: 50%;
+	margin-top: -7px;
+	background:url(../images/icon.png);
+	background-size: 100% 100%;
+	margin-left: 5px;
+}
+.traffic .taxi{
+	background:url(../images/taxi.png);
+	background-size: 100% 100%;
+}
+.traffic .hotel{
+	background:url(../images/walk.png);
+	background-size: 100% 100%;
+	width: 12px;
+    height: 16px;
+}
+
+.traffic .trafficContent{
+	margin-left: 36px;
+}
+.traffic .trafficContent>div:nth-child(2){
+	border-top: 1px solid #f3f3f3;
+}
+.traffic .trafficContent>div p{
+	font-family: "PingFangSC-Light",Helvetica, sans-serif;
+	font-size: 12px;
+	color: #838384;
+	line-height: 18px;
+}
+.traffic .trafficContent>div p:nth-child(2){
+	padding-top: 2px;
+}
+.traffic .trafficContent>div:nth-child(1){
+	padding-bottom: 2px;
+}
+.traffic .trafficContent>div:nth-child(2){
+	padding-top: 2px;
+}
+.traffic .trafficContent>div p span.trafficName{
+	font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+    font-size: 15px;
+    color: #2F383B;
+    line-height: 23px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.traffic .trafficContent>div p span.stop{
+	width: 28px;
+    height: 14px;
+    text-align: center;
+    line-height: 15px;
+    background-color: #838384;
+    border-radius: 3px;
+    font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FFF;
+    margin-left: 2px;
+    display: inline-block;
+    margin-right: 1px;
+}
+.traffic .trafficContent>div p span.zz{
+	font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 10px;
+	color: #838384;
+}
+
+/*景点玩法*/
+
+.title2:last-child{
+	padding-bottom: 12px;
+}
+.ss .scenic{
+	background: url('../images/scenic.png');
+	background-size: 100% 100%;
+}
+.ssTitle{
+	position: relative;
+	padding: 0 20px;
+}
+.ssDetail .tTag{
+	font-family: "PingFangSC-Light",Helvetica, sans-serif;
+	font-size: 15px;
+	color: #838384;
+	margin-left: 5px;
+}
+.swiper-slide{
+	width: 140px;
+	height: 140px;
+}
+.swiper-slide img{
+	width: 100%;
+	height: 100%;
+}
+.ss .description{
+	padding: 8px 20px 0px;
+    font-family: "PingFangSC-Light",Helvetica, sans-serif;
+    font-size: 13px;
+    color: #838384;
+    line-height: 20px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.ss .description span{
+	position: absolute;
+    bottom: -4px;
+    right: 20px;
+    width: 72px;
+    height: 20px;
+    background-color: white;
+    margin-left: 3px;  
+    text-align: center;
+    line-height: 20px;
+    font-family:"PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 15px;
+	color: #729CA0;
+}
+.bgb .description span{
+	background-color: #e7f7f7;
+}
+.playList .start{
+	position: relative;
+	height: 32px;
+	line-height: 32px;
+	background-color: #C3E8E7;
+	padding: 0 20px;
+	font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 13px;
+	color: #838384;
+}
+.start .topArrow{
+	position: absolute;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-bottom: 7px solid  #C3E8E7;
+    border-left: 7px solid transparent;
+    border-top: 7px solid transparent;
+    border-right: 7px solid transparent;
+    top: -13px;
+    left: 20px;
+}
+.ssTitle .address{
+	background: url(../images/ss.png);
+	background-size: 100% 100%;
+}
+.bgb{
+	background-color: #e7f7f7;
+}
+.bgc{
+	background-color: #d4f1ef;
+}
+.bgc .trafficContent>div:nth-child(2){
+	border-top: 1px solid #c8d6d7;
+}
+.snode{
+	position: relative;
+}
+.ndes{
+	margin-top: -8px;
+	padding-bottom: 16px;
+}
+.city{
+	padding: 14px 20px;
+    background-color: #FFF;
+}
+.city p{
+    font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 15px;
+	color: #535353;
+	line-height: 24px;
+}
+.city p span.gray{
+	margin-left: 5px;
+    vertical-align: top;
+    opacity: 0.76;
+    font-family: "PingFangSC-light",Helvetica, sans-serif;
+    font-size: 12px;
+    color: #838384;
+    line-height: 24px;
+}
+.toRight{
+	display: inline-block;
+    width: 41px;
+    height: 100%;
+    background: url(../images/toRight.png) no-repeat center center;
+    background-size: 100% 5px;
+    margin: 0 2px;
+}
+.toRight>span.gray{
+	margin-top: -13px;
+    float: left;
+    margin-left: 7px;
+}
+.ssContent{
+	border-top: 0 !important;
+	padding-top: 0 !important;
+}
+.ssContent .title1{
+	font-family: "PingFangSC-Regular",Helvetica, sans-serif;
+	font-size: 15px;
+	color: #2F383B;
+	line-height: 24px;
+}
+.ssContent span.dot:last-child{
+	display: none;
+}
+.playa img{
+	width: 16px;
+	height: 9px;
+}
+.hotela img{
+	width: 14px;
+	height: 14px;
+}
+/*小图标*/
+.icon2{
+    background-size: 100% 100%;
+    position: absolute;
+    top: 50%;
+    left: 25px;
+}
+.dAirport{
+	background: url(../images/dAirport.png);
+	background-size: 100% 100%;
+}
+.dTrain{
+	background: url(../images/dTrain.png);
+	background-size: 100% 100%;
+}
+.dNode{
+	background: url(../images/dNode.png);
+	background-size: 100% 100%;
+}
+.hotel{
+	background:url(../images/hotel.png);
+	background-size: 100% 100%;
+}
+.littleBus{
+	background:url(../images/littleBus.png);
+	background-size: 100% 100%;
+	width: 16px;
+	height: 8px;
+}
+.jqyy{
+	background:url(../images/jqyy.png);
+	background-size: 100% 100%;
+	width: 20px;
+	height: 9px;
+}
+.jdzx{
+	background:url(../images/jdzx.png);
+	background-size: 100% 100%;
+	width: 15px;
+	height: 15px;
+}
+.kt{
+	background:url(../images/kt.png);
+	background-size: 100% 100%;
+	width: 18px;
+	height: 12px;
+}
+.bus{
+	background:url(../images/bus.png);
+	background-size: 100% 100%;
+	width: 13px;
+	height: 15px;
+	margin-top: -7px;
+}
+.ld{
+	background:url(../images/ld.png);
+	background-size: 100% 100%;
+	width: 15px;
+	height: 14px;
+	margin-top: -7px;
+}
+.taxi{
+	background:url(../images/taxi.png);
+	background-size: 100% 100%;
+	width: 14px;
+	height: 13px;
+	margin-top: -6px;
+}
+.minibus{
+	background:url(../images/minibus.png);
+	background-size: 100% 100%;
+	width: 15px;
+	height: 11px;
+	margin-top: -5px;
+}
+.walk{
+	background:url(../images/walk.png);
+	background-size: 100% 100%;
+	width:13px;
+	height: 19px;
+	margin-top: -9px;
+}
+.cable{
+	background:url(../images/cable.png);
+	background-size: 100% 100%;
+	width: 16px;
+	height: 16px;
+	margin-top: -8px;
+}
+.ferry{
+	background:url(../images/ferry.png);
+	background-size: 100% 100%;
+	width: 15px;
+	height: 14px;
+	margin-top: -7px;
+}
+.moto{
+	background:url(../images/moto.png);
+	background-size: 100% 100%;
+	width: 14px;
+	height: 20px;
+	margin-top: -10px;
+}
+.bicycle{
+	background:url(../images/bicycle.png);
+	background-size: 100% 100%;
+	width: 18px;
+	height: 16px;
+	margin-top: -8px;
+}
+.horse{
+	background:url(../images/horse.png);
+	background-size: 100% 100%;
+	width: 16px;
+	height: 16px;
+	margin-top: -8px;
+}
+.qsc{
+	background:url(../images/qsc.png);
+	background-size: 100% 100%;
+	width: 16px;
+	height: 14px;
+	margin-top: -7px;
+}
+.flight{
+	background:url(../images/flight.png);
+	background-size: 100% 100%;
+	width: 13px;
+	height: 13px;
+	margin-top: -6px;
+}
+.xjd{
+	background:url(../images/xjd.png);
+	background-size: 100% 100%;
+	width: 16px;
+	height: 11px;
+	margin-top: -5px;
+}
+.zzb{
+	background:url(../images/zzb.png);
+	background-size: 100% 100%;
+	width: 14px;
+	height: 12px;
+	margin-top: -6px;
+}
+
+

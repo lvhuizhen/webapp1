@@ -1,0 +1,656 @@
+@import "swiper.min.css";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-size: 62.5%;
+	width: 100%;
+	background: white;
+	margin: 0 auto;
+	font-family: 'Microsoft YaHei';
+	max-width: 640px;
+}
+ul,li{
+	list-style: none;
+}
+/*头部图*/
+header{
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+	height: 12rem;
+}
+header .hzz{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-image:linear-gradient(-180deg,rgba(0,0,0,0.30) 0%,rgba(0,0,0,0.00) 29%,rgba(0,0,0,0.00) 35%,rgba(0,0,0,0.60) 93%);
+}
+header .hText{
+	position: absolute;
+	left: 20px;
+	bottom: 12px;
+	
+}
+header .title{
+	margin-bottom: 16px;
+}
+header h1{
+  	font-family: "PingFangSC-Semibold", Helvetica, sans-serif;
+	font-size: 26px;
+	color: #FFF;
+	letter-spacing: 0;
+	font-weight: normal;
+	margin-bottom: 2px;
+}
+header h2{
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	letter-spacing: 0;
+	margin-bottom: 12px;
+	font-weight: normal;
+}
+.hLine{
+	float: left;
+    width: 0.05rem;
+    height: 44px;
+    margin-top: 0.25rem;
+    background-color: #33D1C9;
+    margin-right: 0.4rem;
+}
+.rContent{
+	float: left;
+}
+header p{
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+    font-size: 13px;
+    color: #FFF;
+    letter-spacing: 0;
+    line-height: 17px;
+    padding-bottom: 2px;
+    border-left: 1px solid #33D1C9;
+    padding-left: 0.4rem;
+}
+header p i{
+	  display: inline-block;
+	  width: 2px;
+	  height: 2px;
+	  margin-bottom: 3px;
+	  background-color: white;
+	  border-radius: 50%;
+}
+
+/*主体部分*/
+
+section ul.tab{
+	width: 100%;
+	height:2rem;
+	background: #FFFFFF;
+	border-bottom: 1px solid #f3f3f3;
+	max-width: 640px;
+}
+section ul.tab li{
+	float: left;
+	line-height: 2rem;
+	text-align: center;
+}
+section ul.tab li>div{
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+	font-size: 15px;
+	color: #838384;
+}
+section ul.tab li.active>div{
+	color: #33D1C9;
+}
+section ul.tab li.active div{
+	width: 30%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    border-bottom: 1px solid #33D1C9;
+}
+#tContent{
+	overflow: hidden;
+	margin-top: 2px;
+	margin-bottom: 12px;
+}
+#tContent>div{
+	display: none;
+}
+#tContent>div.tCon0{
+	display: block;
+}
+#tContent>div.tCon0>div.fj{
+	padding: 0 16px;
+}
+.ctitle{
+	font-family: 'PingFangSC-Medium',Helvetica, sans-serif;
+    font-size: 21px;
+    color: #2F383B;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: bold;
+}
+/*速写区*/
+.suxie {
+	padding: 0 16px;
+}
+
+.ttext{
+	font-family: 'PingFangSC-Light',Helvetica, sans-serif;
+	font-size: 15px;
+	color: #535353;
+	line-height: 26px;
+}
+
+/*概况*/
+.gaikuang .gaikuang-body{
+	overflow: hidden;
+}
+.gaikuang  .ctitle{
+	padding-left: 16px;
+}
+.gaikuang-body span{
+	float: left;
+	width:9px;
+	height: 18px;
+	margin-left: 32px;
+	margin-right: 6px;
+}
+.gaikuang-body span img{
+	width: 100%;
+	height: 100%;
+}
+.gaikuang-body>div{
+	float: left;
+	margin-left: 16px;
+	position: relative;
+	transition: height 0.3s;
+	padding-right: 16px;
+}
+.gzz{
+	position: absolute;
+	width:100%;
+	height: 24px;
+	bottom: -12px;
+	background-image: linear-gradient(-180deg, rgba(250,250,250,0.85) 0%, #FFFFFF 100%);
+}
+
+/*子景点*/
+.zjd .ctitle{
+	padding-left: 16px;
+}
+.zviewImg{
+	width: 100%;
+	overflow: hidden;
+}
+
+.zviewImg ul{
+	width: 200%;
+	height: 100%;
+}
+.zviewImg ul li{
+	float: left;
+	margin-right: 1px;
+	width: 115px;
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+.zviewImg .fj-zz{
+	background-image:linear-gradient(-180deg,rgba(0,0,0,0.00) 59%,rgba(0,0,0,0.50) 100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.zviewImg .viewName{
+	font-family: 'PingFangSC-Medium',Helvetica, sans-serif;
+	font-size: 15px;
+	color: #FFF;
+	text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+	position: absolute;
+	bottom: 8px;
+	padding: 0 8px;
+	z-index: 10;
+	left: 0;
+}
+.zviewImg ul li.last{
+	margin-right:0;
+}
+
+/*贴士*/
+
+.tieshi>div{
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px;
+}
+.tieshi .ctitle{
+	padding: 0 16px;
+	margin-bottom: 24px;
+}
+div.right-con{
+	padding:2px 0 12px 0 ;
+	overflow: hidden;
+	margin-left: 22px;
+}
+#address{
+	padding-right: 19px;
+}
+p.tclick>b{
+	font-weight: normal;
+	font-family: 'PingFangSC-Medium',Helvetica, sans-serif !important;
+	font-size: 13px !important;
+	color: #729CA0 !important;
+	line-height: 26px !important;
+	margin-right: 10px;
+}
+div.tclick>a{
+	font-weight: normal;
+	font-family: 'PingFangSC-Medium',Helvetica, sans-serif !important;
+	font-size: 13px !important;
+	color: #729CA0 !important;
+	line-height: 26px !important;
+	margin-right: 10px;
+}
+span.turnTight{
+    width: 6px;
+    height: 12px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    background: url(../images/next.png);
+    background-size: 100% 100%;
+}
+.tieshi-list li div.ttext{
+	transition: height 0.3s;
+	-moz-transition: height 0.3s;
+	-ms-transition: height 0.3s;
+	-o-transition: height 0.3s;
+	-webkit-transition: height 0.3s;
+	overflow: hidden;
+	position: relative;
+	font-family: 'PingFangSC-Light',Helvetica, sans-serif;
+    font-size: 13px;
+    color: #535353;
+    line-height: 22px;
+}
+.tieshi p.icon1{
+	display: block;
+    margin-right: 11px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #2F383B;
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+}
+.tieshi p.icon1 img{
+	width: 14px;
+	height: 17px;
+	vertical-align: top;
+}
+.tieshi p.icon2 img,.tieshi p.icon3 img{
+	width: 16px;
+	height: 16px;
+}
+.tieshi p.icon4 img{
+	width: 18px;
+	height: 18px;
+}
+.tieshi p.icon5 img{
+	width: 17px;
+	height: 10px;
+	vertical-align: middle;
+}
+.tieshi p.icon6 img{
+	width: 19px;
+	height: 20px;
+}
+.tieshi p.icon7 img{
+	width: 17x;
+	height: 17px;
+}
+.tieshi p.icon8 img{
+	width: 18x;
+	height: 14px;
+}
+.tieshi p.icon9 img{
+	width: 18x;
+	height: 18px;
+}
+.tieshispan.turnTight img{
+	width: 100%;
+	height: 100%;
+}
+
+.tieshi ul.tieshi-list li{
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px;
+	padding: 0 16px;
+}
+.tieshi ul.tieshi-list li:last-child{
+	border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 24px;
+}
+.tieshi ul.tieshi-list li>p{
+	font-weight: bold;
+	font-size: 15px;
+    color: #2F383B;
+    font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+}
+.tieshi ul.tieshi-list li div.ttext{
+	font-family: 'PingFangSC-Light',Helvetica, sans-serif;
+	font-size: 13px;
+	color: #535353;
+	line-height: 22px;
+}
+.tieshi-list li p img{
+	vertical-align: middle;
+}
+.tieshi ul.tieshi-list li span.icon4{
+	left: -1px;
+}
+.tieshi ul.tieshi-list li span img{
+	width: 100%;
+	height: 100%;
+}
+
+
+/*推荐线路*/
+.tj{
+	padding: 0 16px;
+	margin-bottom: 24px;
+}
+.tj h3.ctitle{
+	margin-bottom: 24px;
+}
+.tj ul.advice-route li{
+	position: relative;
+	padding: 8px 0;
+	border-bottom:1px solid rgba(0,0,0,0.10);
+}
+.tj ul.advice-route li div h1{
+	margin-bottom: 2px;
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+	font-size: 13px;	
+	color: #030303;
+	font-weight: normal;
+}
+.tj ul.advice-route li div h2{
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+	font-size: 11px;	
+	color: #030303;
+	font-weight: normal;
+}
+/*照片*/
+.tCon2 ul li{
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	height: 8rem;
+	position: relative;
+}
+.tCon2 ul li .Mban{
+	position: absolute;
+	background-image: radial-gradient(50% 98%,rgba(0,0,0,0.00) 50%,rgba(0,0,0,0.25) 99%);
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+.tCon2 ul li.changeVI{
+	width: 100%;
+	float: left;
+	box-sizing: border-box;
+	height: 10.66rem;
+	position: relative;
+	border-width: 0 0 2px 0 !important;
+}
+.tCon2 ul li.changeVI .Mban{
+	background-image: radial-gradient(50% 147%,rgba(0,0,0,0.00) 50%,rgba(0,0,0,0.25) 100%);
+}
+.tCon2 ul li .tagLike{
+	position: absolute;
+	left: 12px;
+	bottom: 12px;
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+}
+.tCon2 ul li .tagLike span.like{
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background: url(../images/like.png);
+	background-size: 100% 100%;
+	vertical-align: top;
+	margin-right: 5px;
+}
+.tCon2 ul li:nth-child(odd){
+	border-width:2px 2px 0 0;
+	border-color: white;
+	border-style: solid;
+}
+.tCon2 ul li:nth-child(even){
+	border-width:2px 0 0 0;
+	border-color: white;
+	border-style: solid;
+}
+.tCon2 ul li img{
+	width: 100%;
+	height: 100%;
+}
+/*下载*/
+.download{
+	position: fixed;
+	background: #FFFFFF;
+	box-shadow: 0px -1px 1px 0px rgba(0,0,0,0.15);
+	width: 100%;
+	height: 52px;
+	bottom: 0;
+	z-index: 2002;
+	max-width: 640px;
+}
+
+.download b.cancelD{
+	position: absolute;
+	width: 11px;
+	height: 11px;
+	left: 8px;
+	right: 8px;
+	top: 50%;
+	margin-top: -6px;
+}
+.download  img{
+	width: 100%;
+	height: 100%;
+}
+.download span.logo{
+	width: 44px;
+	height: 44px;
+	position: absolute;
+	left: 27px;
+	bottom: 4px;
+}
+.xl-description{
+	position: absolute;
+	left: 71px;
+	margin-left: 8px;
+}
+.xl-description p.d1{
+	line-height: 29px;
+	margin-bottom: 2px;
+	font-family: 'PingFangSC-Medium',Helvetica, sans-serif;
+	font-size: 15px;
+	color: #030303;
+	letter-spacing: -0.37px;
+}
+.xl-description p.d2{
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+	font-size: 13px;
+	color: #030303;
+	letter-spacing: -0.32px;
+}
+.download .ljxz{
+	position: absolute;
+	right: 16px;
+	line-height: 52px;
+	font-family: 'PingFangSC-Semibold',Helvetica, sans-serif;
+	font-size: 17px;
+	color: #3DD3C1;
+}
+.download .ljxz a{
+	color: #3DD3C1;
+}
+
+
+/*玩法*/
+
+.tCon1>ul{
+	padding-left: 16px;
+}
+.tCon1>ul li{
+	margin-bottom: 8px;
+}
+.tCon1>ul li .ttext{
+	padding-right: 16px;
+	padding-top: 24px;
+	margin-bottom: 24px;
+	font-family: "PingFangSC-Light",Helvetica,sans-serif;
+	font-size: 15px;
+	color: #838384;
+	line-height: 24px;
+
+}
+.tCon1>ul li .playLine{
+	height: 1px;
+	background-color:#f3f3f3; 
+	margin-left: -16px;
+}
+.playName{
+	position: relative;
+    margin-top: 24px;
+    overflow: hidden;
+    margin-bottom: -12px;
+}
+.playName .turnTight{
+	right: 16px;
+	margin-top: -8px;
+}
+.playName .leftLogo{
+	float: left;
+	width: 34px;
+	height: 34px;
+}
+.playName .leftLogo img{
+	width: 100%;
+	height: 100%;
+}
+
+
+.playText p:nth-child(1){
+	font-family: 'PingFangSC-Medium',Helvetica, sans-serif;
+    font-size: 17px;
+    color: #3B4346;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.playText p:nth-child(2){
+	font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+	font-size: 12px;
+	color: #838384;
+}
+.pL{
+	vertical-align: top;
+	margin: 0 4px;
+}
+
+/*子景点，附近景点*/
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide{
+	width: 120px;
+	height: 120px;
+}
+.swiper-slide>img{
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide>a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 10;
+}
+/*确认弹框*/
+#con{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 2001;
+}
+#conbk{
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.6;
+}
+#confir{
+	position: absolute;
+    top: 0;
+    top: 50%;
+    margin-top: -50px;
+    width: 70%;
+    left: 15%;
+    height: 100px;
+    background-color: white;
+    border-radius: 4px;
+}
+#confir>p{
+	margin-top: 29px;
+    text-align: center;
+}
+#confir button{
+	position: absolute;
+    width: 50%;
+    bottom: 0;
+    height: 30px;
+    background: white;
+    border: none;
+}
+#confir button#cancelp{
+    border-top: 1px solid #DDD;
+    border-bottom-left-radius: 4px;
+}
+#confir button#phonep{
+	border-left: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    left: 50%;
+    border-bottom-right-radius: 4px;
+}
