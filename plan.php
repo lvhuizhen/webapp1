@@ -37,7 +37,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="swiper-container">
+		<div class="swiper-container" style="z-index: 20;">
 			<ul class="tab swiper-wrapper">
 				<li class="swiper-slide active"><span>全部</span></li>
 				{{#each dayList}}

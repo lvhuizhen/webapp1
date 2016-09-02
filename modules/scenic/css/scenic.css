@@ -453,7 +453,7 @@ span.turnTight{
 	width: 100%;
 	height: 52px;
 	bottom: 0;
-	z-index: 2002;
+	z-index: 20000;
 	max-width: 640px;
 }
 

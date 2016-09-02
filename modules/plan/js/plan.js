@@ -12,6 +12,18 @@ function hinit(){
         freeMode: true
     });
 }
+function bs(){
+	var ftop=$('#planContent').offset().top-40;
+	$('.plan').on('scroll',function() {
+		if($('.plan').scrollTop()>=ftop){
+				$('ul.tab').addClass('ufixed');
+				$('#planContent').css({'margin-top':'40px'});
+		}else{
+				$('ul.tab').removeClass('ufixed');
+				$('#planContent').css({'margin-top':'0'});
+			}
+		});
+}
 function checkAll(){
 	var descriptionAll=$('.description');
 	for (var i = 0; i <descriptionAll.length; i++) {

@@ -12,10 +12,13 @@ define([
             var d=data.fromDateStr;
             var i=-1;
             var ssContent=[];
+            var j=-1;
+            var traContent=[];
             $('#fDate').html(d.slice(0,4)+'/'+d.slice(5,7));
              $.LTtemplate.registerHelper('showContent', function (data) {
                 var _tpl = [];
                 var c=0;
+                var c1=0;
                 $.each(data,function(index,val){
                     _tpl.push('<div class="plan-item-body">');
                     if(val.type == 'ss'){
@@ -27,39 +30,65 @@ define([
                         }     
                            ssContent[i]+='<span class="title1">'+val.name+'</span><span class="dot"></span>';
                            c+=1;
-                    }
-                   
-                    if(val.type == 'flight' || val.type == 'train' || val.type == 'smalltraffic'){      
-                        _tpl.push('<div class="trafficA">');
-                        _tpl.push('<div class="traffic-item">');
-                        if(val.type == 'flight'){         
+                    }       
+                    if(val.type == 'flight' || val.type == 'train' || val.type == 'smalltraffic'){                   
+                        if (c1==0) {
+                            _tpl.push('<div class="trafficT">');
+                            
                             _tpl.push('<div class="title"><img src="modules/plan/images/traffic.png" alt="">交通</div>');
-                            _tpl.push('<p class="title1">'+val.superStartName+' <span class="toRight"><span class="gray">飞机</span></span>'+val.superEndName+'</p>');
-                            _tpl.push('<p class="gray">出发：'+data[index-1].name+'</p>');
+                            _tpl.push('</div>');                          
+                             j+=1;
+                             traContent[j]='';
+                        }
+                        if(val.type == 'flight'){ 
+                            traContent[j]+='<div class="traffic-item">';        
+                            traContent[j]+='<p class="title1">'+val.superStartName+' <span class="toRight"><span class="gray">飞机</span></span>'+val.superEndName+'</p>';
+                            traContent[j]+='<p class="gray">出发：'+data[index-1].name+'</p>';
                             if (data[index+1]) {
-                                 _tpl.push('<p class="gray">到达：'+data[index+1].name+'</p>'); 
+                                 traContent[j]+='<p class="gray">到达：'+data[index+1].name+'</p>'; 
                             }
-                            var stops=val.stops;
-                            var s=stops.split(',').length;
                             var startT=val.startTime.slice(0,5);
                             var endT=val.endTime.slice(0,5);
-                            _tpl.push('<p class="gray">'+startT+'-'+endT+'<span class="turn">转</span><span class="ssnum">+'+s+'</span></p>');
-                            _tpl.push('<p class="gray">'+val.airlineShortName+'&nbsp;'+val.flightNumber+'</p>');
-                            _tpl.push('</div>');
+                            traContent[j]+='<p class="gray">'+startT+'-'+endT;
+                            if (val.stops) {
+                                var stops=val.stops;
+                                var s=stops.split(',').length;
+                                traContent[j]+='<span class="turn">转</span><span class="ssnum">+'+s+'</span>';
+                            }
+                            traContent[j]+='</p>';
+                            traContent[j]+='<p class="gray">'+val.airlineShortName+'&nbsp;'+val.flightNumber+'</p>';
+                            traContent[j]+='<p class="gray">';
+                            if (val.stops) {
+                                traContent[j]+='<span class="stop">经停</span><span class="zz">'+val.stops+'</span>';
+                            }
+                            traContent[j]+='</p>';   
+                            traContent[j]+='</div>';
+                            traContent[j]+='</div>';  
+                            c1+=1;
                         }
                         if (val.type == 'train') {
-                            _tpl.push('<div class="title"><img src="modules/plan/images/icon.png" alt="">交通</div>');
-                            _tpl.push('<p class="title1">'+val.superStartName+' 火车 '+val.superEndName+'</p>');
-                            _tpl.push('<p class="gray">'+val.departTime+'-'+val.arriveTime+'<span>转</span><span class="ssnum">+'+s+'</span></p>');
+                            traContent[j]+='<div class="traffic-item">';  
+                            traContent[j]+='<p class="title1">'+val.superStartName+'<span class="toRight"><span class="gray">火车</span></span>'+val.superEndName+'</p>';
+                            traContent[j]+='<p class="gray">'+val.departTime+'-'+val.arriveTime;
+                            if (val.stops) {
+                                var stops=val.stops;
+                                var s=stops.split(',').length;
+                                traContent[j]+='<span class="turn">转</span><span class="ssnum">+'+s+'</span>';
+                            }
+                            traContent[j]+='</p>';
+                            traContent[j]+='</div>'; 
+                            c1+=1;
                         }
                         if (val.type == 'smalltraffic') {
-                            _tpl.push('<p class="title1">'+val.startStr+'-'+val.stTypeStr+'-'+val.endStr+'</p>');
+                            traContent[j]+='<div class="traffic-item">';
+                            traContent[j]+='<p class="title1">'+val.startStr+'-'+val.stTypeStr+'-'+val.endStr+'</p>';
+                            traContent[j]+='</div>';
+                            c1+=1;
+
                         }   
-                        _tpl.push('</div>'); 
-                        _tpl.push('</div>');            
                     }
                     if (val.type == 'hotel') {
-                         _tpl.push('<div class="trafficA">');
+                        _tpl.push('<div class="trafficA">');
                         _tpl.push('<div class="title hotela"><img src="modules/plan/images/hotela.png" alt="">酒店</div>');
                         _tpl.push('<div class="title1">酒店<span class="waitHotel">待定</span></div>');
                         _tpl.push('<div class="gray">推荐酒店区域  <span class="reco">'+val.recomAreaName+'</span></div>');
@@ -71,10 +100,20 @@ define([
                 return _tpl.join('\n');
             }); 
             var output1 = TM.renderTplById('BplanContentTemplate',data);
+            output1+='<script>bs();</script>'
             XL('#planContent').html(output1);
-            for(j=0;j<=i;j++){
-                $($('.ssContent')[j]).html(ssContent[j]);
+            function playSpots(){           
+                for(var n=0;n<=i;n++){
+                    $($('.ssContent')[n]).html(ssContent[n]);
+                }
+            }  
+            playSpots(); 
+            function traSpots(){
+                for(var m=0;m<=j;m++)  {
+                     $($('.trafficT')[m]).append(traContent[m]);
+                } 
             }
+            traSpots();
             var smallTraffic={'00':'zzb','01':'bus','02':'bus','03':'train', '04':'taxi','05':'minibus',
                              '06':'jdzx','07':'flight','08':'walk','09':'cable','10':'jqyy',
                              '11':'zzb', '12':'ld','13':'bus','14':'xjd','15':'xjd',  
@@ -139,7 +178,10 @@ define([
                                 _tpl.push('<p>'+val.startTime.slice(0,-3)+'到达</p>');
                                 _tpl.push('</div>');
                                 _tpl.push('</div>');
-                                _tpl.push('<p class="gray ndes">'+val.description150+'</p>');
+                                if (val.description150) {
+                                    _tpl.push('<p class="gray ndes">'+val.description150+'</p>');
+                                }
+                                
                                 _tpl.push('</div>');
                            }
                            if (val.type=='ss') {
@@ -324,27 +366,45 @@ define([
                             _tpl.push('</div>');
                             _tpl.push('</div>');
                         }
-                        if (val.type=='flight') {
+                        if (val.type=='flight' || val.type=='train') {
                             var h=Math.floor(val.trafficDuration/60);
                             var m=val.trafficDuration%60;
                             _tpl.push('<div class="traffic">');
-                            _tpl.push('<div class="icon2 flight"></div>');
+                            if (val.type=='flight') {
+                                _tpl.push('<div class="icon2 flight"></div>');
+                            }else{
+                                 _tpl.push('<div class="icon2 train"></div>');
+                            }
                             _tpl.push('<div class="trafficContent">');
                             _tpl.push('<div>');
-                            _tpl.push('<p class="gray"><span class="trafficName">飞机</span>');
-                                if (h!=0) {
-                                    _tpl.push('<span class="time">'+h+'小时</span>');
-                                }
-                                if (m!=0) {
-                                    _tpl.push('<span class="time">'+m+'分钟</span>');
-                                }
-                                _tpl.push('</p>');
-                            var stops=val.stops;
-                            var s=stops.split(',').length;
-                            _tpl.push('<p>'+val.superStartName+'-'+val.superEndName+'<span class="turn">转</span><span class="ssnum">+'+s+'</span></p>');
+                            if (val.type=='flight') {
+                                _tpl.push('<p class="gray"><span class="trafficName">飞机</span>');
+                            }else{
+                                _tpl.push('<p class="gray"><span class="trafficName">火车</span>');
+   
+                            }
+                            if (h!=0) {
+                                _tpl.push('<span class="time">'+h+'小时</span>');
+                            }
+                            if (m!=0) {
+                                _tpl.push('<span class="time">'+m+'分钟</span>');
+                            }
+                            _tpl.push('</p>');
+                            _tpl.push('<p>'+val.superStartName+'-'+val.superEndName);
+                            if (val.stops) {
+                                var stops=val.stops;
+                                var s=stops.split(',').length;
+                                _tpl.push('<span class="turn">转</span><span class="ssnum">+'+s+'</span>');
+                            }
+                            _tpl.push('</p>');
                             _tpl.push('</div>');
                             _tpl.push('<div>');
-                            _tpl.push('<p>'+val.airlineShortName+' '+val.flightNumber+'</p>');
+                            if(val.type=='flight'){
+                                _tpl.push('<p>'+val.airlineShortName+' ');
+                            }else{
+                                _tpl.push('<p>'+val.airline+' ');
+                            }
+                            _tpl.push(val.flightNumber+'</p>');
                             _tpl.push('<p>'+val.startTime.slice(0,-3)+'-'+val.endTime.slice(0,-3));
                             if (val.stops) {
                                 _tpl.push('<span class="stop">经停</span><span class="zz">'+val.stops+'</span>');
@@ -354,17 +414,7 @@ define([
                             _tpl.push('</div>');
                             _tpl.push('</div>');
                         }
-                        if (val.type=='train') {
-                            _tpl.push('<div class="traffic">');
-                            _tpl.push('<div class="icon2 train"></div>');
-                            _tpl.push('<div class="trafficContent">');
-                            
-                            _tpl.push('<p><span class="trafficName">火车</span>'+val.startTime-val.endTime+'小时</p>');
-                            _tpl.push('<p>'+val.superStartName+'-'+val.superEndName+'</p>');
-                            _tpl.push('</div>');
-                            _tpl.push('</div>');
                         
-                        }
                         if (val.type=='smallTraffic') {
                             var trafficDuration=val.trafficDuration;
                             var h=Math.floor(trafficDuration/60);
@@ -400,7 +450,9 @@ define([
                 var index=$(this).index();
                 $(this).addClass('active').siblings().removeClass('active');
                 if(index==0){
-                    XL('#planContent').html(output1);                  
+                    XL('#planContent').html(output1);
+                    playSpots(); 
+                    traSpots();                   
                 }else{
                     var output = TM.renderTplById('dayContentTemplate',data.dayList[index-1]);
                     output+='<script>checkAll();swp1();</script>';
