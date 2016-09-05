@@ -37,8 +37,10 @@ function t(){
 	var initHei=[];
 	var tli=$('.tieshi-list li').length;
 	for(var i=1;i<=tli;i++){
+		console.log($('.tieshi-list li:nth-child('+i+')'));
 		initHei[i]=$('.tieshi-list li:nth-child('+i+') div.ttext').css('height');
 		var inhs=parseInt(initHei[i].slice(0,-2));
+
 		if (inhs>68) {
 			$('.tieshi-list li:nth-child('+i+') div.ttext').css({'height':'68px'});
 		}else{

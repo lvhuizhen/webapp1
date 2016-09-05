@@ -190,10 +190,10 @@
 							网站：
 						</p>
 						<div class="right-con">
-							<p class="ttext tclick">
+							<div class="ttext tclick">
 								<a href="{{guideWebsite}}">{{guideWebsite}}</a>
 								<div class="gzz"></div>
-							</p>
+							</div>
 						</div>
 					</li>
 					{{/if}}	
@@ -204,9 +204,9 @@
 							电话：
 						</p>
 						<div class="right-con">
-							<p class="ttext tclick" id="telPhone">
+							<div class="ttext tclick" id="telPhone">
 								<div class="gzz"></div>
-							</p>
+							</div>
 						</div>					
 					</li>
 					{{/if}}	
