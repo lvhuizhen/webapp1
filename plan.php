@@ -59,7 +59,11 @@
 					</div>
 					<div class="arrow"></div>					
 				</div>
-				{{showContent dayLine}}	
+				<div class="plan-item-body">					
+					{{trafficContent dayLine}}					
+					{{playContent dayLine}}					
+					{{hotelContent dayLine}}
+				</div>	
 			</div>
 			{{/each}}
 	</div>

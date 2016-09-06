@@ -193,7 +193,6 @@ ul.tab li.active span{
     margin-bottom: 3px;
     background-color: black;
     margin-left: 3px;
-    margin-right: 3px;
     border-radius: 50%;
 }
 .plan-item-body{
@@ -229,20 +228,17 @@ ul.tab li.active span{
 	font-size: 15px;
 	color: #B3B3B3;
 	line-height: 24px;
+	padding-bottom: 12px;
 }
 .trafficA .title1{
-	margin-bottom: 6px;
+	margin-bottom: 4px;
 }
 .trafficA .traffic-item{
 	border-bottom: 1px solid #f3f3f3;
 }
-.trafficA .traffic-item:last-child{
-	border-bottom: none;
-}
 .trafficT .traffic-item{
-	border-bottom: 1px solid #f3f3f3;
     padding-bottom: 12px;
-    padding-top: 12px;
+    
 }
 .trafficT .traffic-item:last-child{
 	border-bottom:none;

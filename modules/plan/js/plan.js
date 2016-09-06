@@ -1,3 +1,8 @@
+function turnTo(id){
+	var url = location.href;
+    if (url.indexOf('?') >= 0) url = url.split('?')[0];
+	window.location.href=url+'?id='+id;
+}
 function hinit(){
 	var liLen=$('.tab li').length;
 	$('ul.tab').css({'width':liLen*72+'px'});
