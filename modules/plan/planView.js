@@ -133,61 +133,20 @@ define([
                              '21':'horse'};
              $.LTtemplate.registerHelper('dayContent', function (data) {
                 var _tpl = [];
-                var count1=0;
-                var count2,playId,vname;
+                var count1=0,playId;
                 $.each(data,function(index,val){
-
-                    if (val.type=='ss' && count1==0 && val.playId!=0 && val.playItemId!=0) { 
-                            count2=0;                   
+                    if (count1==0 && val.playId!=0 && val.playItemId!=0) {                 
                             playId=val.playId;
-                            vname=val.name;
                             count1+=1;
-                            var duration=val.duration;
-                            var h=Math.floor(duration/60);
-                            var m=duration%60;
-                            _tpl.push('<div class="ss">');
-                            _tpl.push('<div class="ssTitle" onclick=turnTo('+val.id+')>');
-                            _tpl.push('<div class="icon1 scenic"></div>');
-                            _tpl.push('<div class="ssDetail">');
-                            _tpl.push('<p>'+val.name);
-                            if (val.isTag==1) {
-                               _tpl.push('<span class="tTag">'+val.tag+'</span>'); 
-                            }
-                            _tpl.push('</p>');
-                            _tpl.push('<p class="gray">'+val.startTime.slice(0,-3)+'到达 体验');
-                            if (h!=0) {
-                                _tpl.push('<span class="time">'+h+'小时</span>');
-                            }
-                            if (m!=0) {
-                                _tpl.push('<span class="time">'+m+'分钟</span>');
-                            }
-                            _tpl.push('</p>');
-                            _tpl.push('</div>');
-                            _tpl.push('<div class="arrow"></div>');
-                            _tpl.push('</div>');
-                            _tpl.push('<div class="swiper-container1">');
-                            _tpl.push('<div class="swiper-wrapper">');
-                            for (var i = 0; i <val.imgs.length; i++) {
-                                _tpl.push('<div class="swiper-slide">');
-                                _tpl.push('<img src="'+val.imgs[i]+'-planspot.ht" alt="">');
-                                _tpl.push('</div>');
-                            }                    
-                            _tpl.push('</div>');
-                            _tpl.push('</div>');
-                            if (val.description150) {
-                                _tpl.push('<div class="description">'+val.description150+'<span>..查看全文</span></div>');
-                            }
-                            _tpl.push('</div>');
                             _tpl.push('<div class="playList">');    
-                            _tpl.push('<div class="start"><span class="topArrow"></span>'+vname+'玩法-开始</div>');
-
-                    }else if (val.playId==playId) {
+                    }
+                    if (val.playId==playId) {
                            if (val.type=='node') {
                                  _tpl.push('<div class="ssTitle bgb">');
                                 _tpl.push('<div class="snode">');
                                 _tpl.push('<div class="icon1 dNode"></div>');
                                 _tpl.push('<div class="ssDetail">');
-                                _tpl.push('<p>'+val.name+'</p>');
+                                _tpl.push('<p class="np">'+val.name+'</p>');
                                 _tpl.push('<p>'+val.startTime.slice(0,-3)+'到达</p>');
                                 _tpl.push('</div>');
                                 _tpl.push('</div>');
@@ -205,11 +164,11 @@ define([
                                 _tpl.push('<div class="ssTitle" onclick=turnTo('+val.id+')>');
                                 _tpl.push('<div class="icon1 scenic"></div>');
                                 _tpl.push('<div class="ssDetail">');
-                                _tpl.push('<p>'+val.name);
+                                _tpl.push('<div>'+val.name);
                                 if (val.isTag==1) {
                                    _tpl.push('<span class="tTag">'+val.tag+'</span>'); 
                                 }
-                                _tpl.push('</p>');
+                                _tpl.push('</div>');
                                 _tpl.push('<p class="gray">'+val.startTime.slice(0,-3)+'到达 体验');
                                 if (h!=0) {
                                     _tpl.push('<span class="time">'+h+'小时</span>');
@@ -263,11 +222,7 @@ define([
                                 _tpl.push('</div>');
                            }
                     }else{  
-                        if (count2==0) {    
-                           _tpl.push('<div class="start">'+vname+'玩法-结束</div>');
-                           _tpl.push('</div>');
-                           count2+=1;
-                        }                     
+                        _tpl.push('</div>');                
                         if (val.type=='hotel') {
                             _tpl.push('<div class="trafficHub">');
                             _tpl.push('<div class="icon1 hotel"></div>');
@@ -308,11 +263,11 @@ define([
                             _tpl.push('<div class="ssTitle" onclick=turnTo('+val.id+')>');
                             _tpl.push('<div class="icon1 scenic"></div>');
                             _tpl.push('<div class="ssDetail">');
-                            _tpl.push('<p>'+val.name);
+                            _tpl.push('<div class="np">'+val.name);
                             if (val.isTag==1) {
                                _tpl.push('<span class="tTag">'+val.tag+'</span>'); 
                             }
-                            _tpl.push('</p>');
+                            _tpl.push('</div>');
                             _tpl.push('<p class="gray">'+val.startTime.slice(0,-3)+'到达 体验');
                             if (h!=0) {
                                 _tpl.push('<span class="time">'+h+'小时</span>');
@@ -342,7 +297,7 @@ define([
                                 _tpl.push('<div class="snode">');
                                 _tpl.push('<div class="icon1 dNode"></div>');
                                 _tpl.push('<div class="ssDetail">');
-                                _tpl.push('<p>'+val.name+'</p>');
+                                _tpl.push('<p class="np">'+val.name+'</p>');
                                 _tpl.push('<p>'+val.startTime.slice(0,-3)+'到达</p>');
                                 _tpl.push('</div>');
                                 _tpl.push('</div>');
@@ -449,11 +404,11 @@ define([
             function ssDH(){
                 var sl=$('.ss').length;
                 for(var i=0;i<sl;i++){
-                     var sh=parseInt($($('.ss')[i]).find('.ssDetail>p:nth-child(1)').css('height').slice(0,-2));
+                     var sh=parseInt($($('.ss')[i]).find('.ssDetail>div:nth-child(1)').css('height').slice(0,-2));
                      if (sh>30) {
-                        var tag= $($('.ss')[i]).find('.ssDetail>p:nth-child(1) span.tTag').html();
-                        $($('.ss')[i]).find('.ssDetail>p:nth-child(1) span.tTag').remove();
-                        $($('.ss')[i]).find('.ssDetail>p:nth-child(1)').append('<p class="tTag">'+tag+'</p>');
+                        var tag= $($('.ss')[i]).find('.ssDetail>div:nth-child(1) span.tTag').html();
+                        $($('.ss')[i]).find('.ssDetail>div:nth-child(1) span.tTag').remove();
+                        $($('.ss')[i]).find('.ssDetail>div:nth-child(1)').append('<p class="tTag">'+tag+'</p>');
                      }
                 }
             }

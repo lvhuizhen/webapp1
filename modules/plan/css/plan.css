@@ -231,7 +231,7 @@ ul.tab li.active span{
 	padding-bottom: 12px;
 }
 .trafficA .title1{
-	margin-bottom: 4px;
+	/*margin-bottom: 4px;*/
 }
 .trafficA .traffic-item{
 	border-bottom: 1px solid #f3f3f3;
@@ -273,7 +273,8 @@ ul.tab li.active span{
     text-align: center;
     line-height: 17px;
     margin-left: 4px;
-    vertical-align: middle;
+    vertical-align: top;
+    margin-top: 3px;
     background: #FCC04A;
 	border-radius: 3px;
 	font-family: "PingFangSC-Medium",Helvetica, sans-serif;
@@ -314,10 +315,13 @@ ul.tab li.active span{
 	margin-left: 36px;
 	padding: 16px 0;
 }
-.trafficHub .HubDetail p:nth-child(1),.ssDetail p:nth-child(1){
+.trafficHub .HubDetail p:nth-child(1),.ssDetail div:nth-child(1),.ssDetail p.np{
 	font-size: 17px;
 	color: #2C2C2D;
 	font-family: "PingFangSC-Medium",Helvetica, sans-serif;
+}
+.ssDetail div:nth-child(1){
+	margin-bottom: 3px;
 }
 .ty{
 	font-size: 17px;
@@ -422,7 +426,12 @@ p span.stop{
 .ssDetail .tTag{
 	font-family: "PingFangSC-Light",Helvetica, sans-serif;
 	font-size: 15px;
-	color: #838384;
+	color: #838384;	
+}
+.ssDetail p.tTag{
+	margin-top: 1px;
+}
+.ssDetail span.tTag{
 	margin-left: 5px;
 }
 .swiper-slide{
@@ -596,18 +605,21 @@ p span.stop{
 	background-size: 100% 100%;
 	width: 20px;
 	height: 9px;
+	margin-top: -4px;
 }
 .jdzx{
 	background:url(../images/jdzx.png);
 	background-size: 100% 100%;
 	width: 15px;
 	height: 15px;
+	margin-top: -7px;
 }
 .kt{
 	background:url(../images/kt.png);
 	background-size: 100% 100%;
 	width: 18px;
 	height: 12px;
+	margin-top: -6px;
 }
 .bus{
 	background:url(../images/bus.png);
