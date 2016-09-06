@@ -29,7 +29,8 @@
             utils       :   'static/scripts/utils',
             router      :   'static/scripts/router',
             swiper      :   'static/scripts/swiper.min',
-            module      :   $.appConfig.modulePath,
+            echo        :   'static/scripts/echo.min',
+            module      :   $.appConfig.modulePath
         },
         waitSeconds:15,
         urlArgs: "v=" + (+new Date()),
@@ -54,6 +55,6 @@
         };
         XLsharePage.initialize();
     });
-    require(['swiper'],function(){
-    });
+    require(['swiper'],function(){});
+    require(['echo'],function(){});
 })();

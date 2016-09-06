@@ -12,6 +12,9 @@ body{
 	font-family: 'Microsoft YaHei';
 	max-width: 640px;
 }
+.page{
+	z-index: 1;
+}
 ul,li{
 	list-style: none;
 }
@@ -113,10 +116,13 @@ section ul.tab li.active div{
     height: 100%;
     border-bottom: 1px solid #33D1C9;
 }
+section ul.tab li.acre div{
+	border-bottom: none;
+}
 #tContent{
 	overflow: hidden;
 	margin-top: 2px;
-	margin-bottom: 12px;
+	margin-bottom: 77px;
 }
 #tContent>div{
 	display: none;
@@ -124,28 +130,34 @@ section ul.tab li.active div{
 #tContent>div.tCon0{
 	display: block;
 }
-#tContent>div.tCon0>div.fj{
+#tContent>div.tCon0>div.fj .ctitle{
 	padding: 0 16px;
+	padding-top: 24px;
 }
 .ctitle{
 	font-family: 'PingFangSC-Medium',Helvetica, sans-serif;
     font-size: 21px;
     color: #2F383B;
-    margin-top: 24px;
     margin-bottom: 8px;
     text-align: left;
     font-weight: bold;
 }
 /*速写区*/
-.suxie {
-	padding: 0 16px;
+.suxie,.gaikuang,.tieshi{
+	padding: 24px 20px;
+    border-bottom: 1px solid #f3f3f3;
 }
-
+.zjd,.fj{
+	padding-bottom: 24px;
+	border-bottom: 1px solid #f3f3f3;
+}
 .ttext{
 	font-family: 'PingFangSC-Light',Helvetica, sans-serif;
 	font-size: 15px;
 	color: #535353;
 	line-height: 26px;
+	transition: height 0.3s;
+	-webkit-transition:height 0.3s;
 }
 
 /*概况*/
@@ -153,7 +165,6 @@ section ul.tab li.active div{
 	overflow: hidden;
 }
 .gaikuang  .ctitle{
-	padding-left: 16px;
 }
 .gaikuang-body span{
 	float: left;
@@ -168,10 +179,8 @@ section ul.tab li.active div{
 }
 .gaikuang-body>div{
 	float: left;
-	margin-left: 16px;
 	position: relative;
 	transition: height 0.3s;
-	padding-right: 16px;
 }
 .gzz{
 	position: absolute;
@@ -184,6 +193,7 @@ section ul.tab li.active div{
 /*子景点*/
 .zjd .ctitle{
 	padding-left: 16px;
+	padding-top: 24px;
 }
 .zviewImg{
 	width: 100%;
@@ -231,9 +241,8 @@ section ul.tab li.active div{
 	position: relative;
 	margin-bottom: 10px;
 }
-.tieshi .ctitle{
-	padding: 0 16px;
-	margin-bottom: 24px;
+#addres .ttext a{
+	margin-left: -1px;
 }
 div.right-con{
 	padding:2px 0 12px 0 ;
@@ -251,7 +260,7 @@ p.tclick>b{
 	line-height: 26px !important;
 	margin-right: 10px;
 }
-div.tclick>a{
+div.tclick>a,div.tclick>b{
 	font-weight: normal;
 	font-family: 'PingFangSC-Medium',Helvetica, sans-serif !important;
 	font-size: 13px !important;
@@ -292,7 +301,6 @@ span.turnTight{
 .tieshi p.icon1 img{
 	width: 14px;
 	height: 17px;
-	vertical-align: top;
 }
 .tieshi p.icon2 img,.tieshi p.icon3 img{
 	width: 16px;
@@ -327,16 +335,16 @@ span.turnTight{
 	width: 100%;
 	height: 100%;
 }
-
+.tieshi ul.tieshi-list{
+	margin-top: 20px;
+}
 .tieshi ul.tieshi-list li{
 	overflow: hidden;
 	position: relative;
 	margin-bottom: 10px;
-	padding: 0 16px;
 }
 .tieshi ul.tieshi-list li:last-child{
-	border-bottom: 1px solid #f3f3f3;
-    padding-bottom: 24px;
+	margin-bottom: -12px;
 }
 .tieshi ul.tieshi-list li>p{
 	font-weight: bold;
@@ -506,6 +514,9 @@ span.turnTight{
 }
 .download .ljxz a{
 	color: #3DD3C1;
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 
 

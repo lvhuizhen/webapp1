@@ -37,7 +37,7 @@
 					<p class="d2">你的自助游行程助手！</p>
 				</div>
 				<span class="ljxz">
-					立即下载
+					<a href="http://www.mydeertrip.com/download/app/smartplan">立即下载</a>
 				</span>									
 			</div>
 		</div>
@@ -221,14 +221,12 @@
 				<div class="swiper-container">
 			        <div class="swiper-wrapper">
 			        	{{#each sub}}
-			            <div class="swiper-slide">
-			            	<div onclick="turnTo({{id}})"></a>
+			            <div class="swiper-slide" onclick="turnTo({{id}})">	  
 				            	<p class="viewName">{{name}}</p>
 				            	<div class="fj-zz"></div>
 				            	{{#if img}}
 				            	<img src="{{img}}-spotsubspot.ht" alt="">
-				            	{{/if}}
-				            </div>
+				            	{{/if}}	           
 			            </div>
 			        	{{/each}}
 			        </div>
@@ -242,8 +240,8 @@
 			<div class="zviewImg" id="zviewImg2">
 				<div class="swiper-container">
 			        <div class="swiper-wrapper">
-			        	{{#each sub}}
-			            <div class="swiper-slide">
+			        	{{#each list}}
+			            <div class="swiper-slide" onclick="turnTo({{id}})">
 			            	<p class="viewName">{{name}}</p>
 			            	<div class="fj-zz"></div>
 			            	<img src="{{img}}" alt="">

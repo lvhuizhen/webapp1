@@ -37,22 +37,18 @@ function t(){
 	var initHei=[];
 	var tli=$('.tieshi-list li').length;
 	for(var i=1;i<=tli;i++){
-		console.log($('.tieshi-list li:nth-child('+i+')'));
 		initHei[i]=$('.tieshi-list li:nth-child('+i+') div.ttext').css('height');
 		var inhs=parseInt(initHei[i].slice(0,-2));
-
 		if (inhs>68) {
 			$('.tieshi-list li:nth-child('+i+') div.ttext').css({'height':'68px'});
+			$('#scenicContent').on('tap','.tieshi-list li:nth-child('+i+') div.ttext',function(){
+					$(this).css({'height':initHei[i]});
+					$(this).find('.gzz').hide();
+			});
 		}else{
 			$('.tieshi-list li:nth-child('+i+') div.ttext .gzz').hide();
 		}
 	}
-	
-	$('#scenicContent').on('tap','.tieshi-list li div.ttext .gzz',function(){
-			var index=$(this).closest('li').index()+1;
-			$('.tieshi-list li:nth-child('+index+') div.ttext').css({'height':initHei[index]});
-			$(this).hide();
-	});
 }
 $('#scenicContent').on('tap','.cancelD',function(){
 		$('.download').hide();

@@ -15,7 +15,7 @@ define([
                 var list=JSON.stringify(data);      
                 var output2=TM.renderTplById('BscenicContentTemplate',data);
                 if (data.playCount==0) {
-                    XL('.tab').append('<li><div>指南</div></li>');
+                    XL('.tab').append('<li class="active acre"><div>指南</div></li>');
                     XL('.tab li:nth-child(1)').css({'width':'100%'});
                 }else{
                     XL('.tab').append('<li class="active"><div>指南</div></li><li><div>玩法</div></li>');
@@ -29,7 +29,7 @@ define([
                 var ua = navigator.userAgent.toLowerCase(); 
                 if (/iphone|ipad|ipod/.test(ua)) {
                     for(var i=0;i<phoneNum.length;i++){
-                        $('#telPhone').append('<a href="tel:'+phoneNum[i]+'">'+phoneNum[i]+'</a>');
+                        $('#telPhone').append('<a href="tel:'+phoneNum[i]+'">'+phoneNum[i]+'</a>&nbsp;&nbsp;');
                     }         
                 } else if (/android/.test(ua)) {
                      for(var i=0;i<phoneNum.length;i++){

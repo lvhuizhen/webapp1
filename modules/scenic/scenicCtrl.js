@@ -18,7 +18,7 @@ define([
     		this.getScenicData(query.ssId);
             this.getPlayData(query.ssId);
             this.getRelatedData(query.ssId);
-            this.getNearbyData(query.ssId);
+            this.getNearbyData(query.lat,query.lon,query.ssId);
     	},
     	getScenicData: function(ssid){
     		xhr.ajaxCall({
@@ -46,14 +46,17 @@ define([
                 }
             });
         },
-        getNearbyData: function(ssid){
+        getNearbyData: function(lat,lon,ssid){
             xhr.ajaxCall({
                 func:'scenic_spots/listNearbyss',
                 type:'GET',
                 data:{
-                    id:ssid
+                    lat:lat,
+                    lon:lon,
+                    ssId:ssid
                 }
-            },function(res){         
+            },function(res){   
+                console.log(res.data);
                     scenicView.showNearbyData(res.data);         
             });
         },

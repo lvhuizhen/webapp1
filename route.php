@@ -71,7 +71,7 @@
 				        <div class="swiper-wrapper">
 				        	{{#each imgList}}
 				            <div class="swiper-slide">
-				                <img src="{{img}}-routepic.ht" alt="">
+				                <img src="static/images/blank.gif" data-echo="{{img}}-routepic.ht" alt="">
 				            </div>
 				            {{/each}}
 				        </div>
