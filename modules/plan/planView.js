@@ -11,17 +11,20 @@ define([
             XL('#planHeader').html(output);
             var d=data.fromDateStr;
             $('#fDate').html(d.slice(0,4)+'/'+d.slice(5,7));
+            var dayData=data;
+            var dCount=-1;
             $.LTtemplate.registerHelper('trafficContent', function (data) {
+                dCount+=1;
                 var _tpl = [];
                 var c1=0;
                 $.each(data,function(index,val){  
-                    if(val.type == 'flight' || val.type == 'train' || val.type == 'smallTraffic'){ 
-                        if (c1==0) {
-                           _tpl.push('<div class="trafficT">');         
-                           _tpl.push('<div class="title"><img src="modules/plan/images/traffic.png" alt="">交通</div>');                
-                           c1+=1;
-                        }  
+                    if(val.type == 'flight' || val.type == 'train' || val.type == 'smallTraffic'){                  
                         if(val.type == 'flight' || val.type == 'train'){ 
+                            if (c1==0) {
+                               _tpl.push('<div class="trafficT">');         
+                               _tpl.push('<div class="title"><img src="modules/plan/images/traffic.png" alt="">交通</div>');                
+                               c1+=1;
+                            }  
                             _tpl.push('<div class="traffic-item">');        
                             _tpl.push('<p class="title1">'+val.superStartName);
                             if (val.type=='flight') {
@@ -59,10 +62,19 @@ define([
                             _tpl.push('</p>');   
                             _tpl.push('</div>');             
                         }
+                        
                         if(val.type == 'smallTraffic') {
-                            _tpl.push('<div class="traffic-item">');
-                            _tpl.push('<p class="title1">'+val.startStr+'<span class="toRight"><span class="gray">'+val.stTypeStr+'</span></span>'+val.endStr+'</p>');
-                            _tpl.push('</div>');
+                            var traStr=dayData.dayList[dCount].cityStr.split('-');
+                            if ($.inArray(val.startStr,traStr)!=-1 && $.inArray(val.endStr,traStr)!=-1) {
+                                if (c1==0) {
+                                   _tpl.push('<div class="trafficT">');         
+                                   _tpl.push('<div class="title"><img src="modules/plan/images/traffic.png" alt="">交通</div>');                
+                                   c1+=1;
+                                }  
+                                _tpl.push('<div class="traffic-item">');
+                                _tpl.push('<p class="title1">'+val.startStr+'<span class="toRight"><span class="gray">'+val.stTypeStr+'</span></span>'+val.endStr+'</p>');
+                                _tpl.push('</div>');
+                            }                  
                         }   
                     }  
                     var d=index+1;
