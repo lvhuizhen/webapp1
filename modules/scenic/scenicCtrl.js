@@ -56,7 +56,6 @@ define([
                     ssId:ssid
                 }
             },function(res){   
-                console.log(res.data);
                     scenicView.showNearbyData(res.data);         
             });
         },

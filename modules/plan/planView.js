@@ -15,7 +15,7 @@ define([
                 var _tpl = [];
                 var c1=0;
                 $.each(data,function(index,val){  
-                    if(val.type == 'flight' || val.type == 'train' || val.type == 'smalltraffic'){ 
+                    if(val.type == 'flight' || val.type == 'train' || val.type == 'smallTraffic'){ 
                         if (c1==0) {
                            _tpl.push('<div class="trafficT">');         
                            _tpl.push('<div class="title"><img src="modules/plan/images/traffic.png" alt="">交通</div>');                
@@ -38,11 +38,11 @@ define([
                             var startT=val.startTime.slice(0,5);
                             var endT=val.endTime.slice(0,5);
                             _tpl.push('<p class="gray">'+startT+'-'+endT);
-                            if (val.stops) {
-                                var stops=val.stops;
-                                var s=stops.split(',').length;
-                                _tpl.push('<span class="turn">转</span><span class="ssnum">+'+s+'</span>');
-                            }
+                            // 转车和加号
+                            var strFnum=zhuan(val.flightNumber);
+                            _tpl.push(strFnum);
+                            var plus=diy_time(val.departTime,val.arriveTime);
+                            _tpl.push(plus);
                             _tpl.push('</p>');
                             _tpl.push('<p class="gray">');
                             if (val.type=='flight') {
@@ -59,9 +59,9 @@ define([
                             _tpl.push('</p>');   
                             _tpl.push('</div>');             
                         }
-                        if (val.type == 'smalltraffic') {
+                        if(val.type == 'smallTraffic') {
                             _tpl.push('<div class="traffic-item">');
-                            _tpl.push('<p class="title1">'+val.startStr+'-'+val.stTypeStr+'-'+val.endStr+'</p>');
+                            _tpl.push('<p class="title1">'+val.startStr+'<span class="toRight"><span class="gray">'+val.stTypeStr+'</span></span>'+val.endStr+'</p>');
                             _tpl.push('</div>');
                         }   
                     }  
@@ -124,7 +124,7 @@ define([
                 return _tpl.join('\n');
             }); 
             var output1 = TM.renderTplById('BplanContentTemplate',data);
-            output1+='<script>bs();</script>'
+            output1+='<script>bs();</script>';
             XL('#planContent').html(output1);
             var smallTraffic={'00':'zzb','01':'bus','02':'bus','03':'train', '04':'taxi','05':'minibus',
                              '06':'jdzx','07':'flight','08':'walk','09':'cable','10':'jqyy',
@@ -133,12 +133,17 @@ define([
                              '21':'horse'};
              $.LTtemplate.registerHelper('dayContent', function (data) {
                 var _tpl = [];
-                var count1=0,playId;
+                var count1=0,playId,count2,vname;
                 $.each(data,function(index,val){
-                    if (count1==0 && val.playId!=0 && val.playItemId!=0) {                 
-                            playId=val.playId;
+                    if (count1==0 && val.playId!=0 && val.playItemId!=0) { 
+                            count2=0;                
+                            playId=val.playId;                    
                             count1+=1;
-                            _tpl.push('<div class="playList">');    
+                            _tpl.push('<div class="playList">');  
+                            if (data[index-1] && data[index-1].name!=null && data[index-1].playId==playId && data[index-1].parentId==0 && data[index-1].playItemId==0) {
+                                vname=data[index-1].name;
+                                _tpl.push('<div class="start"><span class="topArrow"></span>'+vname+'玩法-开始</div>');
+                            }
                     }
                     if (val.playId==playId) {
                            if (val.type=='node') {
@@ -161,7 +166,7 @@ define([
                                 var h=Math.floor(duration/60);
                                 var m=duration%60;
                                 _tpl.push('<div class="ss bgb">');
-                                _tpl.push('<div class="ssTitle" onclick=turnTo('+val.id+')>');
+                                _tpl.push('<div class="ssTitle" onclick=turnTo('+val.latitude+','+val.longitude+','+val.id+')>');
                                 _tpl.push('<div class="icon1 scenic"></div>');
                                 _tpl.push('<div class="ssDetail">');
                                 _tpl.push('<div>'+val.name);
@@ -222,7 +227,13 @@ define([
                                 _tpl.push('</div>');
                            }
                     }else{  
-                        _tpl.push('</div>');                
+                        if (count2==0) {    
+                           if (vname!=null) {
+                            _tpl.push('<div class="start">'+vname+'玩法-结束</div>');
+                           }
+                           _tpl.push('</div>');
+                           count2+=1;
+                        }                       
                         if (val.type=='hotel') {
                             _tpl.push('<div class="trafficHub">');
                             _tpl.push('<div class="icon1 hotel"></div>');
@@ -260,7 +271,7 @@ define([
                             var h=Math.floor(duration/60);
                             var m=duration%60;
                             _tpl.push('<div class="ss">');
-                            _tpl.push('<div class="ssTitle" onclick=turnTo('+val.id+')>');
+                            _tpl.push('<div class="ssTitle" onclick=turnTo('+val.latitude+','+val.longitude+','+val.id+')>');
                             _tpl.push('<div class="icon1 scenic"></div>');
                             _tpl.push('<div class="ssDetail">');
                             _tpl.push('<div class="np">'+val.name);
@@ -291,6 +302,7 @@ define([
                             if (val.description150) {
                                 _tpl.push('<div class="description">'+val.description150+'<span>..查看全文</span></div>');
                             }
+                            _tpl.push('</div>');
                         }
                         if (val.type=='node' || val.type=='city') {
                                 _tpl.push('<div class="ssTitle">');
@@ -347,11 +359,11 @@ define([
                             }
                             _tpl.push('</p>');
                             _tpl.push('<p>'+val.superStartName+'-'+val.superEndName);
-                            if (val.stops) {
-                                var stops=val.stops;
-                                var s=stops.split(',').length;
-                                _tpl.push('<span class="turn">转</span><span class="ssnum">+'+s+'</span>');
-                            }
+                            // 转车和加号
+                            var strFnum=zhuan(val.flightNumber);
+                            _tpl.push(strFnum);
+                            var plus=diy_time(val.departTime,val.arriveTime);
+                            _tpl.push(plus);
                             _tpl.push('</p>');
                             _tpl.push('</div>');
                             _tpl.push('<div>');
@@ -406,9 +418,9 @@ define([
                 for(var i=0;i<sl;i++){
                      var sh=parseInt($($('.ss')[i]).find('.ssDetail>div:nth-child(1)').css('height').slice(0,-2));
                      if (sh>30) {
-                        var tag= $($('.ss')[i]).find('.ssDetail>div:nth-child(1) span.tTag').html();
-                        $($('.ss')[i]).find('.ssDetail>div:nth-child(1) span.tTag').remove();
-                        $($('.ss')[i]).find('.ssDetail>div:nth-child(1)').append('<p class="tTag">'+tag+'</p>');
+                        var tag= $($('.ss')[i]).find('.ssDetail>div.np span.tTag').html();
+                        $($('.ss')[i]).find('.ssDetail>div.np span.tTag').remove();
+                        $($('.ss')[i]).find('.ssDetail>div.np').append('<p class="tTag">'+tag+'</p>');
                      }
                 }
             }

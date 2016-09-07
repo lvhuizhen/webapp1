@@ -49,7 +49,7 @@
 				{{#each ssList}}
 				<div class="ssList">
 					<div class="ssName">
-						<div onclick="turnTo({{id}})">
+						<div onclick="turnTo({{latitude}},{{longitude}},{{id}})">
 							<div class="icon">
 								<img src="modules/route/images/scenic.png" alt="">
 							</div>

@@ -19,7 +19,7 @@
 		document.documentElement.style.fontSize= '20px';
 		var wid=640;
 	}
-	var _HOST = 'http://t.m.mydeertrip.com/';
+	var _HOST = 'http://192.168.1.150/';
 	var appConfig = {
 		modulePath:"modules/",
 	}	

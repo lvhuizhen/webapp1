@@ -1,7 +1,7 @@
-function turnTo(id){
+function turnTo(latitude,longitude,id){
 	var url = location.href;
-    if (url.indexOf('?') >= 0) url = url.split('?')[0];
-	window.location.href=url+'?id='+id;
+    if (url.indexOf('?') >= 0) url = url.split('?')[0].slice(0,-8);
+	window.location.href=url+'scenic.php?lat='+latitude+'&lon='+longitude+'&ssId='+id;
 }
 function hinit(){
 	var liLen=$('.tab li').length;
@@ -52,9 +52,24 @@ function swp1(){
         freeMode: true
 		});
 }
-
-function t(){
-	
+function zhuan(flightNumber){
+	var f=flightNumber.split(',').length;
+	if (f>1) {
+		return '<span class="turn">转</span>';
+	}else{
+		return '';
+	}
 }
-
+function diy_time(dtime,atime){
+	var time1=dtime.split('T')[0];
+	var time2=atime.split('T')[0];
+    time1 = Date.parse(new Date(time1));
+    time2 = Date.parse(new Date(time2));
+    var d=Math.abs(parseInt((time2 - time1)/1000/3600/24));
+    if (d>0) {
+    	return '<span class="ssnum">+'+d+'</span>';
+    }else{
+    	return '';
+    }
+}
 

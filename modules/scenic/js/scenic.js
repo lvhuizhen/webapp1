@@ -1,3 +1,4 @@
+
 function turnTo(id){
 	var url = location.href;
     if (url.indexOf('?') >= 0) url = url.split('?')[0];

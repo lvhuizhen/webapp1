@@ -1,7 +1,7 @@
-function turnTo(id){
+function turnTo(latitude,longitude,id){
 	var url = location.href;
-    if (url.indexOf('?') >= 0) url = url.split('?')[0];
-	window.location.href=url+'?id='+id;
+    if (url.indexOf('?') >= 0) url = url.split('?')[0].slice(0,-9);
+	window.location.href=url+'scenic.php?lat='+latitude+'&lon='+longitude+'&ssId='+id;
 }
 function sinit(){
 	$('.route').on('scroll',function() {
