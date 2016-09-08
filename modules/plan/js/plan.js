@@ -20,12 +20,12 @@ function hinit(){
 function bs(){
 	var ftop=$('#planContent').offset().top-40;
 	$('.plan').on('scroll',function() {
-		if($('.plan').scrollTop()>=ftop){
-				$('ul.tab').css({'position':'fixed','top':'0','z-index':'2010'});
-				$('#planContent').css({'margin-top':'40px'});
-		}else{
-				$('ul.tab').css({'position':'','top':'','z-index':''});
-				$('#planContent').css({'margin-top':'0'});
+			if($('.plan').scrollTop()>=ftop){
+					$('ul.tab').css({'position':'fixed','top':'0','z-index':'30100'});
+					$('#planContent').css({'margin-top':'40px'});
+			}else{
+					$('ul.tab').css({'position':'','top':'','z-index':''});
+					$('#planContent').css({'margin-top':'0'});
 			}
 		});
 }

@@ -114,14 +114,6 @@ a:active {
   z-index: 20000;
   max-width: 640px;
 }
-.download:after {
-    content: ".";
-    height: 100%;
-    width: 0;
-    display: inline-block;
-    vertical-align: middle;
-    visibility: hidden;
-}
 .download #downwrapper{
   width: 13.5rem;
   height: 48px;

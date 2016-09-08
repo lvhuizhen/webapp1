@@ -50,10 +50,10 @@ function t(){
 		}
 	}
 }
-// document.querySelector(".scenic").addEventListener('touchmove',bs, false); 
 function bs(){
 	$('.scenic').on('scroll',function() {
 		if($('.scenic').scrollTop()>=ftop){
+			// alert('IOS兼容');
 			$('ul.tab').css({'position':'fixed','top':'0','z-index':'2000'});
 			$('#tContent').css({'margin-top':'40px'});
 		}else{

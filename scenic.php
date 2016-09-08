@@ -44,7 +44,6 @@
 			</div>
 		</div>
 	</div>
-
 	<script type="text/template" id="HscenicContentTemplate">
 			<div class="hzz"></div>
 			<div class="hText">
