@@ -1,8 +1,7 @@
-
-function turnTo(id){
+function turnTo(latitude,longitude,id){
 	var url = location.href;
-    if (url.indexOf('?') >= 0) url = url.split('?')[0];
-	window.location.href=url+'?ssId='+id;
+    if (url.indexOf('?') >= 0) url = url.split('?')[0].slice(0,-10);
+	window.location.href=url+'scenic.php?lat='+latitude+'&lon='+longitude+'&ssId='+id;
 }
 function tab(){
 	$('#scenicContent').on('tap','.tab li',function(){
@@ -51,17 +50,14 @@ function t(){
 		}
 	}
 }
-$('#scenicContent').on('tap','.cancelD',function(){
-		$('.download').hide();
-});
-
+// document.querySelector(".scenic").addEventListener('touchmove',bs, false); 
 function bs(){
 	$('.scenic').on('scroll',function() {
 		if($('.scenic').scrollTop()>=ftop){
 			$('ul.tab').css({'position':'fixed','top':'0','z-index':'2000'});
 			$('#tContent').css({'margin-top':'40px'});
 		}else{
-			$('ul.tab').css({'position':'','top':'0'});
+			$('ul.tab').css({'position':'','top':''});
 			$('#tContent').css({'margin-top':'2px'});
 			}
 		});

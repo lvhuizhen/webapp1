@@ -11,6 +11,23 @@
 				<img src="modules/route/images/hover.png">
 			</div>
 		</div>
+		<div class="download">	
+			<div id="downwrapper">
+				<span class="logo">
+					<img src="static/images/appicon.png">
+				</span>
+				<div class="xl-description">
+					<p class="d1">驯鹿旅行</p>
+					<p class="d2">你的自助游行程助手！</p>
+				</div>
+				<span class="ljxz">
+					<a href="http://www.mydeertrip.com/download/app/smartplan">立即下载</a>
+				</span>			
+			</div>	
+			<b class="cancelD">
+					<img src="static/images/close.png">
+			</b>												
+		</div>
 	</div>
 	<script type="text/template" id="routeContentTemplate">
 		<div class="route-banner"  style="{{#if img}}background: url({{img}}-routeheader.ht);
@@ -69,15 +86,35 @@
 					</div>
 					<div class="swiper-container">
 				        <div class="swiper-wrapper">
-				        	{{#each imgList}}
+				        {{#if imgList}}
+				        	{{#if imgList[0]}}
 				            <div class="swiper-slide">
-				                <img src="static/images/blank.gif" data-echo="{{img}}-routepic.ht" alt="">
+				                <img src="{{imgList[0].img}}-routepic.ht" alt="">
 				            </div>
-				            {{/each}}
+				            {{/if}}
+				            {{#if imgList[1]}}
+				            <div class="swiper-slide">
+				                <img src="{{imgList[1].img}}-routepic.ht" alt="">
+				            </div>
+				            {{/if}}
+				            {{#if imgList[2]}}
+				            <div class="swiper-slide">
+				                <img src="{{imgList[2].img}}-routepic.ht" alt="">
+				            </div>
+				            {{/if}}
+				            {{#if imgList[3]}}
+				            <div class="swiper-slide">
+				                <img src="{{imgList[3].img}}-routepic.ht" alt="">
+				            </div>
+				            {{/if}}
+				            {{#if imgList[4]}}
+				            <div class="swiper-slide">
+				                <img src="{{imgList[4].img}}-routepic.ht" alt="">
+				            </div>
+				            {{/if}}
+				         {{/if}}
 				        </div>
-				       <div class="tip">
-				           <span class="currentImg"></span>/{{imgCount}}
-				       </div>
+				        <div class="swiper-pagination"></div>
 				    </div>
 				    {{#if description150}}
 					<p>

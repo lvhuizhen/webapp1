@@ -7,6 +7,23 @@
 <div class="page plan" data-page="plan">
 	<div id="planHeader"></div>
 	<div id="planContent"></div>
+	<div class="download">	
+		<div id="downwrapper">
+			<span class="logo">
+				<img src="static/images/appicon.png">
+			</span>
+			<div class="xl-description">
+				<p class="d1">驯鹿旅行</p>
+				<p class="d2">你的自助游行程助手！</p>
+			</div>
+			<span class="ljxz">
+				<a href="http://www.mydeertrip.com/download/app/smartplan">立即下载</a>
+			</span>			
+		</div>	
+		<b class="cancelD">
+				<img src="static/images/close.png">
+		</b>												
+	</div>
 </div>
 
 <script type="text/template" id="HplanContentTemplate">

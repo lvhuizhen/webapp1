@@ -10,10 +10,10 @@ define([
                 output+='<script>sinit();</script>';
                 XL('#routeContent').html(output);
                 // console.log($('.swiper-slide:nth-child(1) img'));
-                Echo.init({
-                    offset: 0,
-                    throttle: 0
-                });
+                // Echo.init({
+                //     offset: 0,
+                //     throttle: 0
+                // });
                 var dayl=$('.one-day').length;
                 for(var i=1;i<=dayl;i++){
                     var listL=$('.one-day:nth-child('+i+') .ssList').length;

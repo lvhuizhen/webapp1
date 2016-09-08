@@ -31,15 +31,8 @@
     'use strict';
     $.showPreloader = function (title,icon) {
         var _preloaderHTML = '<div id="js_loading">'+
-                             '<div class="preloader-indicator-overlay"></div>'+
-                             '<div class="wd-preloader">'+
-                             '<i class="icon iconloading '+(icon ? icon : defaults.preloaderIcon)+'"></i>'+
-                             '<h4 class="preloader-title">'+(title ? title : defaults.preloaderTitle)+'</h4>'+
-                             '<div id="dot_wave">'+
-                             '<div class="dot_wave dot_wave_1"></div>'+
-                             '<div class="dot_wave dot_wave_2"></div>'+
-                             '<div class="dot_wave dot_wave_3"></div>'+
-                             '</div>'+
+                             '<div id="loadingWrapper">'+
+                             '<img src="static/images/dataLoading.gif"/>'+
                              '</div>'+
                              '</div>';
         $(defaults.preloaderContainer).append(_preloaderHTML);

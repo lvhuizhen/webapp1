@@ -78,81 +78,105 @@ a:active {
   width: 100%;
 }
 
+#js_loading{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#js_loading #loadingWrapper{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #FFF;
+    border-radius: 10px;
+    position:absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 50%;
+    margin-left: -50px;
+    z-index: 30000;
+}
+#js_loading img{
+    width: 80px;
+    height: 82px;
+    margin-left: 10px;
+    margin-top: 9px;
+}
 
-.wd-preloader{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:2.5rem;
-  height:2.5rem;
-  margin-left:-1.25rem;
-  margin-top:-1.25rem;
-  background-color:rgba(17,17,17,.8);
-  padding-top:0.25rem;
-  padding-bottom:0.25rem;
-  border-radius:0.13066666666666666rem;
-  -moz-border-radius:0.13066666666666666rem;
-  -webkit-border-radius:0.13066666666666666rem;
-  text-align:center;
-  color:#fff;
-  z-index: 99999;
+/*下载*/
+.download{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #33D1C9;
+  width: 100%;
+  height: 60px;
+  z-index: 20000;
+  max-width: 640px;
 }
-.wd-preloader .preloader-title{
-  font-size:0.45rem;
-  margin-top:0rem;
-  margin-bottom:0rem;
-  font-weight:700;
-  color:#fff;
+.download:after {
+    content: ".";
+    height: 100%;
+    width: 0;
+    display: inline-block;
+    vertical-align: middle;
+    visibility: hidden;
 }
-#dot_wave{
-  height:0.6rem;
-  line-height:0.6rem;
-  font-size: 0
+.download #downwrapper{
+  width: 13.5rem;
+  height: 48px;
+  margin: 0 1.5rem 0 1rem;
+  margin-top: 6px;
+  position: relative;
 }
-.dot_wave{
-  display:inline-block;
-  vertical-align:middle;
-  margin:0 0.08533333333333333rem;
-  background-color:transparent;
-  width:0.188rem;
-  height:0.188rem;
-  -webkit-animation-name:bounce_dot_wave;
-  -webkit-animation-duration:1.3s;
-  -webkit-animation-iteration-count:infinite;
-  -webkit-border-radius:50%
+.download b.cancelD img{
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: 6px;
+  right: 6px;
 }
-.wd-preloader .dot_wave_1{
-  -webkit-animation-delay:0s
+.download  img{
+  width: 100%;
+  height: 100%;
 }
-.wd-preloader .dot_wave_2{
-  -webkit-animation-delay:.5s
+.download span.logo{
+  width: 44px;
+  height: 44px;
+  float: left;
 }
-.wd-preloader .dot_wave_3{
-  -webkit-animation-delay:1s
+.xl-description{
+   float: left;
+   margin-left: 6px;
 }
-@-webkit-keyframes bounce_dot_wave{
-  0%{
-      background-color:#FFF
-  }
-  100%{
-      background-color:#959595
-  }
+.xl-description p.d1{
+  font-family: 'PingFangSC-Medium',Helvetica, sans-serif;
+  font-size: 15px;
+  color: #FFFFFF;
+  line-height: 23px;
 }
-@keyframes bounce_dot_wave{
-  0%{
-      background-color:#FFF
-  }
-  100%{
-      background-color:#959595
-  }
+.xl-description p.d2{
+  font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+  font-size: 13px;
+  color: #FFFFFF;
+  line-height: 23px;
 }
-@-webkit-keyframes preloader-spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
+.download .ljxz{
+  position: absolute;
+  border: 1px solid #FFFFFF;
+  border-radius: 2px;
+  width: 68px;
+  height: 30px;
+  text-align: center;
+  right: 0;
+  top: 9px;
 }
-@keyframes preloader-spin {
-  100% {
-    transform: rotate(360deg);
-  }
+.download .ljxz a{
+  font-family: 'PingFangSC-Regular',Helvetica, sans-serif;
+    font-size: 13px;
+    color: #FFFFFF;
+    line-height: 28px;
+    height: 100%;
+    width: 100%;
+    display: block;
 }

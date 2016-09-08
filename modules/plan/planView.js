@@ -443,7 +443,7 @@ define([
                     XL('#planContent').html(output1);        
                 }else{
                     var output = TM.renderTplById('dayContentTemplate',data.dayList[index-1]);
-                    output+='<script>checkAll();swp1();</script>';
+                    output+='<script>checkAll();swp1();bs();</script>';
                     XL('#planContent').html(output);
                     ssDH();    
                 }
@@ -453,7 +453,7 @@ define([
                 var index=parseInt($(this).find('.dayNum').html().slice(1));
                 $('ul.tab li:nth-child('+(index+1)+')').addClass('active').siblings().removeClass('active');
                 var output = TM.renderTplById('dayContentTemplate',data.dayList[index-1]);
-                output+='<script>checkAll();swp1();</script>';
+                output+='<script>checkAll();swp1();bs();</script>';
                 $(".page").scrollTop(0);
                 XL('#planContent').html(output);
                  ssDH();

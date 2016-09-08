@@ -230,7 +230,6 @@ html, body {
     position: relative;
     height: 100%;
 }
-
 .swiper-container {
     width: 100%;
     height: 9rem;
@@ -241,7 +240,7 @@ html, body {
 .swiper-container img{
     width: 100%;
     height: 100%;
-    background: url(../../../static/images/loading.gif) 50% no-repeat;
+    /*background: url(../../../static/images/loading.gif) 50% no-repeat;*/
 }
 .swiper-slide {
     text-align: center;
@@ -260,6 +259,16 @@ html, body {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+}
+.swiper-pagination-bullet{
+    width: 4px !important;
+    height: 4px !important;
+    margin: 0 4px !important;
+    background: #FFF !important;
+    opacity: 1;
+}
+.swiper-pagination-bullet-active{
+    background: #3dd3c1 !important;
 }
 .tip{
     position: absolute;
@@ -312,7 +321,7 @@ html, body {
 }
 .nav_toggle {
     position: fixed;
-    bottom: 24px;
+    bottom: 80px;
     right: 10px;
     z-index: 1000;
 }
