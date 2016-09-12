@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="modules/route/css/route.css">
 </head>
 <body>
-	<div class="page route" data-page="route">
+	<div class="page route" data-page="route">	
 		<div id="routeContent"></div>
 		<div class="nav_toggle hidden">
 			<div class="img_bg hcenter vcenter">
@@ -24,9 +24,9 @@
 					<a href="http://www.mydeertrip.com/download/app/smartplan">立即下载</a>
 				</span>			
 			</div>	
-			<b class="cancelD">
+			<div class="cancelD">
 					<img src="static/images/close.png">
-			</b>												
+			</div>												
 		</div>
 	</div>
 	<script type="text/template" id="routeContentTemplate">
@@ -130,8 +130,7 @@
 			</div>
 			{{/each}}
 		{{/if}}
-		</div>	
-		
+		</div>		
 		<div class="nav_bg hidden"></div>
 		<div class="nav_wrap">
 			<div class="navList">

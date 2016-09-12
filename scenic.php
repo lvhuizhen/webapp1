@@ -17,7 +17,7 @@
 		<div id="scenicContent">
 			<header></header>
 			<section>
-				<ul class="tab">
+				<ul class="tab" id="tab">
 					
 				</ul>
 				<div id="tContent">
@@ -25,23 +25,23 @@
 					<div class="tCon1"></div>
 				</div>
 			</section>
-			<div class="download">	
-				<div id="downwrapper">
-					<span class="logo">
-						<img src="static/images/appicon.png">
-					</span>
-					<div class="xl-description">
-						<p class="d1">驯鹿旅行</p>
-						<p class="d2">你的自助游行程助手！</p>
-					</div>
-					<span class="ljxz">
-						<a href="http://www.mydeertrip.com/download/app/smartplan">立即下载</a>
-					</span>			
-				</div>	
-				<b class="cancelD">
-						<img src="static/images/close.png">
-				</b>												
-			</div>
+		</div>
+		<div class="download">	
+			<div id="downwrapper">
+				<span class="logo">
+					<img src="static/images/appicon.png">
+				</span>
+				<div class="xl-description">
+					<p class="d1">驯鹿旅行</p>
+					<p class="d2">你的自助游行程助手！</p>
+				</div>
+				<span class="ljxz">
+					<a href="http://www.mydeertrip.com/download/app/smartplan">立即下载</a>
+				</span>			
+			</div>	
+			<div class="cancelD">
+					<img src="static/images/close.png">
+			</div>												
 		</div>
 	</div>
 	<script type="text/template" id="HscenicContentTemplate">

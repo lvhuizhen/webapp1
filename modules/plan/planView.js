@@ -138,6 +138,7 @@ define([
             var output1 = TM.renderTplById('BplanContentTemplate',data);
             output1+='<script>bs();</script>';
             XL('#planContent').html(output1);
+            
             var smallTraffic={'00':'zzb','01':'bus','02':'bus','03':'train', '04':'taxi','05':'minibus',
                              '06':'jdzx','07':'flight','08':'walk','09':'cable','10':'jqyy',
                              '11':'zzb', '12':'ld','13':'bus','14':'xjd','15':'xjd',  

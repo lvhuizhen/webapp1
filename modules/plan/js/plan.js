@@ -5,8 +5,8 @@ function turnTo(latitude,longitude,id){
 }
 function hinit(){
 	var liLen=$('.tab li').length;
-	$('ul.tab').css({'width':liLen*72+'px'});
-	$('ul.tab').on('tap','li',function(){
+	$('ul#tab').css({'width':liLen*72+'px'});
+	$('ul#tab').on('tap','li',function(){
 		var index=$(this).index();
 		$(this).addClass('active').siblings().removeClass('active');
 	});
@@ -19,12 +19,19 @@ function hinit(){
 }
 function bs(){
 	var ftop=$('#planContent').offset().top-40;
-	$('.plan').on('scroll',function() {
-			if($('.plan').scrollTop()>=ftop){
-					$('ul.tab').css({'position':'fixed','top':'0','z-index':'30100'});
+	$('#planWrapper').on('scroll',function() {
+			var cls=$('ul#tab').prop('class');
+			if($('#planWrapper').scrollTop()>=ftop){
+					if (cls.indexOf('ufixed')!=-1) {
+						$('ul#tab').removeClass('ufixed');
+					}
+					$('ul#tab').addClass('sfixed');
 					$('#planContent').css({'margin-top':'40px'});
 			}else{
-					$('ul.tab').css({'position':'','top':'','z-index':''});
+					if (cls.indexOf('sfixed')!=-1) {
+						$('ul#tab').removeClass('sfixed');
+					}
+					$('ul#tab').addClass('ufixed');
 					$('#planContent').css({'margin-top':'0'});
 			}
 		});

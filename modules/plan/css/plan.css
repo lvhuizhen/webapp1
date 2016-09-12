@@ -6,6 +6,10 @@
 ul,li{
 	list-style: none;
 }
+#planWrapper{
+	overflow-y:scroll;
+	height: 100%;
+}
 /*头部图*/
 .headerImg{
 	width:100%;
@@ -90,20 +94,17 @@ ul,li{
 	float: left;
 }
 /*tab切换条*/
-.ufixed{
-	position:fixed;
-	top:0;
-	z-index:2010;
-}
+
 #planContent{
 	width: 100%;
 	overflow: hidden;
 }
 ul.tab{
 	height: 40px;
-	line-height: 2rem;
+	line-height: 40px;
 	border-bottom: 1px solid #f3f3f3;
 	background-color: #FFF;
+	min-width: 100%;
 }
 ul.tab li{
 	float: left;
@@ -721,4 +722,17 @@ p span.stop{
 	margin-top: 6px;
 }
 
-
+.sfixed{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index:2000;
+}
+.ufixed{
+	position: static;
+	top: 0;
+	z-index:'';
+}
+.swiper-container{
+	position: static !important;
+}

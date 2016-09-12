@@ -5,8 +5,10 @@
 </head>
 <body>
 <div class="page plan" data-page="plan">
-	<div id="planHeader"></div>
-	<div id="planContent"></div>
+	<div id="planWrapper">
+		<div id="planHeader"></div>
+		<div id="planContent"></div>
+	</div>
 	<div class="download">	
 		<div id="downwrapper">
 			<span class="logo">
@@ -20,9 +22,9 @@
 				<a href="http://www.mydeertrip.com/download/app/smartplan">立即下载</a>
 			</span>			
 		</div>	
-		<b class="cancelD">
+		<div class="cancelD">
 				<img src="static/images/close.png">
-		</b>												
+		</div>												
 	</div>
 </div>
 
@@ -55,11 +57,11 @@
 			</div>
 		</div>
 		<div class="swiper-container" style="z-index: 20;">
-			<ul class="tab swiper-wrapper">
+			<ul class="tab swiper-wrapper" id="tab">	
 				<li class="swiper-slide active"><span>全部</span></li>
 				{{#each dayList}}
 					<li class="swiper-slide"><span>Day{{@index+1}}</span></li>
-				{{/each}}
+				{{/each}}			
 			</ul>
 		</div>
 	</div>

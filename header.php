@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="yes" name="apple-touch-fullscreen"/>
-<meta content="telephone=no,email=no" name="format-detection"/>
+<meta content="telephone=no,-+=no" name="format-detection"/>
 <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <title>驯鹿旅行 你的自助游行程助手</title>

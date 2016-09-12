@@ -4,6 +4,21 @@
 	margin: 0;
 	padding: 0;
 }
+.sfixed{
+	position: fixed;
+	top: 0;
+	z-index:2000;
+}
+.ufixed{
+	position: static;
+	top: '';
+	z-index:'';
+}
+
+#scenicContent{
+	height: 100%;
+	overflow-y:scroll;
+}
 body{
 	font-size: 62.5%;
 	width: 100%;
@@ -11,9 +26,6 @@ body{
 	margin: 0 auto;
 	font-family: 'Microsoft YaHei';
 	max-width: 640px;
-}
-.page{
-	z-index: 1;
 }
 ul,li{
 	list-style: none;
@@ -227,7 +239,7 @@ section ul.tab li.acre div{
 	position: absolute;
 	bottom: 8px;
 	padding: 0 8px;
-	z-index: 10;
+	z-index: 20;
 	left: 0;
 }
 .zviewImg ul li.last{

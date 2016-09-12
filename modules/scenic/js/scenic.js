@@ -51,13 +51,20 @@ function t(){
 	}
 }
 function bs(){
-	$('.scenic').on('scroll',function() {
-		if($('.scenic').scrollTop()>=ftop){
+	$('#scenicContent').on('scroll',function() {
+		var cls=$('ul#tab').prop('class');
+		if($('#scenicContent').scrollTop()>=ftop){
 			// alert('IOS兼容');
-			$('ul.tab').css({'position':'fixed','top':'0','z-index':'2000'});
+			if (cls.indexOf('ufixed')!=-1) {
+				$('ul#tab').removeClass('ufixed');
+			}
+			$('ul#tab').addClass('sfixed');
 			$('#tContent').css({'margin-top':'40px'});
 		}else{
-			$('ul.tab').css({'position':'','top':''});
+			if (cls.indexOf('sfixed')!=-1) {
+				$('ul#tab').removeClass('sfixed');
+			}
+			$('ul#tab').addClass('ufixed');
 			$('#tContent').css({'margin-top':'2px'});
 			}
 		});

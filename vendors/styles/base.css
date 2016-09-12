@@ -53,8 +53,9 @@ a:active {
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: auto;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
+  z-index: 1;
 }
 .text-center {
   text-align: center;
@@ -105,28 +106,35 @@ a:active {
 
 /*下载*/
 .download{
-  position: fixed;
-  left: 0;
+  position: absolute;
   bottom: 0;
+  left: 0;
   background: #33D1C9;
   width: 100%;
   height: 60px;
-  z-index: 20000;
+  z-index: 40;
   max-width: 640px;
+  overflow: hidden;
 }
 .download #downwrapper{
   width: 13.5rem;
   height: 48px;
   margin: 0 1.5rem 0 1rem;
   margin-top: 6px;
-  position: relative;
+  position: absolute;
+  z-index: 150;
 }
-.download b.cancelD img{
+.download div.cancelD {
   position: absolute;
   width: 8px;
   height: 8px;
   top: 6px;
   right: 6px;
+}
+.download div.cancelD img{
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .download  img{
   width: 100%;
