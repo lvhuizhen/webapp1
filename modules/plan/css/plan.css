@@ -98,6 +98,7 @@ ul,li{
 #planContent{
 	width: 100%;
 	overflow: hidden;
+	margin-bottom: 70px;
 }
 ul.tab{
 	height: 40px;
@@ -723,7 +724,7 @@ p span.stop{
 }
 
 .sfixed{
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	z-index:2000;

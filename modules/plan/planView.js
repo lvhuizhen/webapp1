@@ -6,9 +6,10 @@ define([
             
     	},
         showPlanContent: function(data){
-           var output = TM.renderTplById('HplanContentTemplate',data);
+            var output = TM.renderTplById('HplanContentTemplate',data);
             output+='<script>hinit();</script>';
             XL('#planHeader').html(output);
+            var ftop=$('#planContent').offset().top-40;
             var d=data.fromDateStr;
             $('#fDate').html(d.slice(0,4)+'/'+d.slice(5,7));
             var dayData=data;
@@ -448,19 +449,32 @@ define([
                     XL('#planContent').html(output);
                     ssDH();    
                 }
-                $(".page").scrollTop(0);
             });
-            $('#planContent').on('tap','.plan-item-title',function(){
-                var index=parseInt($(this).find('.dayNum').html().slice(1));
-                $('ul.tab li:nth-child('+(index+1)+')').addClass('active').siblings().removeClass('active');
+            $('#planContent').on('click','.plan-item-title',function(){
+                var index=parseInt($(this).find('.dayNum').html().slice(1));                $('ul.tab li:nth-child('+(index+1)+')').addClass('active').siblings().removeClass('active');
                 var output = TM.renderTplById('dayContentTemplate',data.dayList[index-1]);
                 output+='<script>checkAll();swp1();bs();</script>';
-                $(".page").scrollTop(0);
                 XL('#planContent').html(output);
-                 ssDH();
-            }); 
-
-        }
+                ssDH();
+                $('#planWrapper').scrollTop(ftop);
+                $('#planWrapper').on('scroll',function() {
+                    var cls=$('ul#tab').prop('class');
+                    if($('#planWrapper').scrollTop()>=ftop){
+                            if (cls.indexOf('ufixed')!=-1) {
+                                $('ul#tab').removeClass('ufixed');
+                            }
+                            $('ul#tab').addClass('sfixed');
+                            $('#planContent').css({'margin-top':'40px'});
+                    }else{
+                            if (cls.indexOf('sfixed')!=-1) {
+                                $('ul#tab').removeClass('sfixed');
+                            }
+                            $('ul#tab').addClass('ufixed');
+                            $('#planContent').css({'margin-top':'0'});
+                    }
+                });
+            });  
+        }    
     };
     return planView;
 });

@@ -18,7 +18,7 @@ function hinit(){
     });
 }
 function bs(){
-	var ftop=$('#planContent').offset().top-40;
+	var ftop=$('#planContent').offset().top-40; 
 	$('#planWrapper').on('scroll',function() {
 			var cls=$('ul#tab').prop('class');
 			if($('#planWrapper').scrollTop()>=ftop){
