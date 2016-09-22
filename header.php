@@ -29,7 +29,7 @@ var _hmt = _hmt || [];
 		document.documentElement.style.fontSize= '20px';
 		var wid=640;
 	}
-	var _HOST = 'http://192.168.0.108:8080/';
+	var _HOST = 'http://m.mydeertrip.com/';
 	var appConfig = {
 		modulePath:"modules/",
 	}	

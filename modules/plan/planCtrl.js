@@ -15,7 +15,7 @@ define([
     var planCtrl = {
     	init: function(query){
     		planView.init();
-            this.getPlanData(query.id);
+            this.getPlanData(query.planId);
     	},
     	getPlanData: function(id){
             xhr.ajaxCall({

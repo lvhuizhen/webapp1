@@ -15,9 +15,9 @@ define([
     var routeCtrl = {
     	init: function(query){
     		routeView.init();
-            this.getRouteData(query.token,query.entry,query.id);
+            this.getRouteData(query.routeId);
     	},
-    	getRouteData: function(token,entry,id){
+    	getRouteData: function(id){
             xhr.ajaxCall({
                 func:'route',
                 type:'GET',

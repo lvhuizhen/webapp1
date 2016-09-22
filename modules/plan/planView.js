@@ -438,24 +438,7 @@ define([
                      }
                 }
             }
-            $('#planHeader').on('tap','ul.tab li',function(){
-                var index=$(this).index();
-                $(this).addClass('active').siblings().removeClass('active');
-                if(index==0){
-                    XL('#planContent').html(output1);        
-                }else{
-                    var output = TM.renderTplById('dayContentTemplate',data.dayList[index-1]);
-                    output+='<script>checkAll();swp1();bs();</script>';
-                    XL('#planContent').html(output);
-                    ssDH();    
-                }
-            });
-            $('#planContent').on('click','.plan-item-title',function(){
-                var index=parseInt($(this).find('.dayNum').html().slice(1));                $('ul.tab li:nth-child('+(index+1)+')').addClass('active').siblings().removeClass('active');
-                var output = TM.renderTplById('dayContentTemplate',data.dayList[index-1]);
-                output+='<script>checkAll();swp1();bs();</script>';
-                XL('#planContent').html(output);
-                ssDH();
+            function pWrapper(){
                 $('#planWrapper').scrollTop(ftop);
                 $('#planWrapper').on('scroll',function() {
                     var cls=$('ul#tab').prop('class');
@@ -473,6 +456,27 @@ define([
                             $('#planContent').css({'margin-top':'0'});
                     }
                 });
+            }
+            $('#planHeader').on('tap','ul.tab li',function(){
+                var index=$(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                if(index==0){
+                    XL('#planContent').html(output1);        
+                }else{
+                    var output = TM.renderTplById('dayContentTemplate',data.dayList[index-1]);
+                    output+='<script>checkAll();swp1();bs();</script>';
+                    XL('#planContent').html(output);
+                    ssDH(); 
+                    pWrapper();   
+                }
+            });
+            $('#planContent').on('click','.plan-item-title',function(){
+                var index=parseInt($(this).find('.dayNum').html().slice(1));                $('ul.tab li:nth-child('+(index+1)+')').addClass('active').siblings().removeClass('active');
+                var output = TM.renderTplById('dayContentTemplate',data.dayList[index-1]);
+                output+='<script>checkAll();swp1();bs();</script>';
+                XL('#planContent').html(output);
+                ssDH();
+                pWrapper();
             });  
         }    
     };

@@ -13,9 +13,9 @@
         version     :   {
           'app'   : '0.0.1'
         },
-        staticPath : _HOST,
+        staticPath : _HOST, 
         modulePath : _HOST+'modules/',
-        apiPath : 'http://t.api.mydeertrip.com/',
+        apiPath : 'http://api.mydeertrip.com/',
         author          :   '听着情歌流泪',
         email           :   'bobo.xiao@nmtree.com',
     };
